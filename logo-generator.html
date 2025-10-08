@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logo to PNG Converter</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: #f0f0f0; 
+            font-family: Arial, sans-serif;
+        }
+        .logo-container { 
+            background: white; 
+            padding: 10px; 
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
+        h3 { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>PesoScan Logo Generator</h1>
+    <p>Right-click on each logo and "Save image as..." to get PNG files</p>
+    
+    <div>
+        <h3>16x16 (favicon)</h3>
+        <div class="logo-container">
+            <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M16 3 L25 7 L25 19 Q25 23 22 26 Q19 29 16 29 Q13 29 10 26 Q7 23 7 19 L7 7 Z" fill="url(#grad16)"/>
+                <path d="M11 10 L11 23" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 10 L18 10 Q20 10 21 12 Q22 14 22 16 Q22 18 21 20 Q20 22 18 22 L11 22" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 16 L14 16" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="17" cy="13" rx="2.5" ry="1.8" fill="#ffffff"/>
+                <ellipse cx="17" cy="13" rx="1.6" ry="1.2" fill="#3b82f6"/>
+                <ellipse cx="17" cy="13" rx="0.8" ry="0.7" fill="#1e293b"/>
+                <ellipse cx="16.6" cy="12.7" rx="0.3" ry="0.25" fill="#ffffff" opacity="0.9"/>
+            </svg>
+        </div>
+    </div>
+
+    <div>
+        <h3>32x32 (standard favicon)</h3>
+        <div class="logo-container">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad32" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M16 3 L25 7 L25 19 Q25 23 22 26 Q19 29 16 29 Q13 29 10 26 Q7 23 7 19 L7 7 Z" fill="url(#grad32)"/>
+                <path d="M11 10 L11 23" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 10 L18 10 Q20 10 21 12 Q22 14 22 16 Q22 18 21 20 Q20 22 18 22 L11 22" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 16 L14 16" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="17" cy="13" rx="2.5" ry="1.8" fill="#ffffff"/>
+                <ellipse cx="17" cy="13" rx="1.6" ry="1.2" fill="#3b82f6"/>
+                <ellipse cx="17" cy="13" rx="0.8" ry="0.7" fill="#1e293b"/>
+                <ellipse cx="16.6" cy="12.7" rx="0.3" ry="0.25" fill="#ffffff" opacity="0.9"/>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        // Auto-generate PNG files using canvas
+        function svgToPng(svgElement, width, height, filename) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            
+            const data = new XMLSerializer().serializeToString(svgElement);
+            const img = new Image();
+            const svgBlob = new Blob([data], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(svgBlob);
+            
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    URL.revokeObjectURL(url);
+                }, 'image/png');
+            };
+            img.src = url;
+        }
+        
+        // Add download buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const svgs = document.querySelectorAll('svg');
+            svgs.forEach((svg, index) => {
+                const button = document.createElement('button');
+                button.textContent = 'Download PNG';
+                button.style.marginLeft = '10px';
+                button.onclick = function() {
+                    const size = index === 0 ? 16 : 32;
+                    svgToPng(svg, size, size, `logo-${size}x${size}.png`);
+                };
+                svg.parentElement.appendChild(button);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+/* Dark Mode Utility Styles - Apply to all components */
+
+/* Page containers */
+.page-container {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Section backgrounds */
+.section {
+  background: var(--bg-primary);
+  transition: background-color var(--transition-normal);
+}
+
+.section-alt {
+  background: var(--bg-secondary);
+  transition: background-color var(--transition-normal);
+}
+
+/* Text elements */
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Cards and containers */
+.dark-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color) !important;
+  transition: all var(--transition-normal);
+}
+
+.dark-card:hover {
+  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color) !important;
+}
+
+/* Buttons - maintain primary colors for branding */
+.btn-primary {
+  background: var(--primary-blue) !important;
+  color: var(--accent-white) !important;
+  border: none !important;
+}
+
+.btn-secondary {
+  background: var(--primary-teal) !important;
+  color: var(--accent-white) !important;
+  border: none !important;
+}
+
+.btn-outline {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.btn-outline:hover {
+  background: var(--hover-bg) !important;
+  border-color: var(--primary-blue) !important;
+  color: var(--primary-blue) !important;
+}
+
+/* Forms */
+.form-control {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  transition: all var(--transition-normal);
+}
+
+.form-control:focus {
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Inputs */
+input, 
+textarea, 
+select {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-blue) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Modals and overlays */
+.modal {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.modal-content {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Dropdowns */
+.dropdown-menu {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color) !important;
+}
+
+.dropdown-item {
+  color: var(--text-primary) !important;
+}
+
+.dropdown-item:hover {
+  background: var(--hover-bg) !important;
+  color: var(--primary-blue) !important;
+}
+
+/* Tables */
+.table {
+  color: var(--text-primary) !important;
+}
+
+.table th {
+  border-bottom: 2px solid var(--border-color) !important;
+  background: var(--bg-secondary) !important;
+}
+
+.table td {
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background: var(--bg-secondary) !important;
+}
+
+/* Alerts */
+.alert {
+  border: 1px solid var(--border-color) !important;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: var(--success-green) !important;
+  color: var(--success-green) !important;
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: var(--error-red) !important;
+  color: var(--error-red) !important;
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1) !important;
+  border-color: var(--warning-yellow) !important;
+  color: var(--warning-yellow) !important;
+}
+
+/* Badges */
+.badge {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.badge-primary {
+  background: var(--primary-blue) !important;
+  color: var(--accent-white) !important;
+}
+
+.badge-success {
+  background: var(--success-green) !important;
+  color: var(--accent-white) !important;
+}
+
+.badge-danger {
+  background: var(--error-red) !important;
+  color: var(--accent-white) !important;
+}
+
+/* Dividers */
+hr {
+  border-color: var(--border-color) !important;
+}
+
+/* Loading states */
+.spinner {
+  border-color: var(--border-color) !important;
+  border-top-color: var(--primary-blue) !important;
+}
+
+/* Camera and scan specific */
+.camera-container {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.scan-overlay {
+  border: 2px solid var(--primary-blue) !important;
+}
+
+/* Results display */
+.result-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.result-authentic {
+  border-left: 4px solid var(--success-green) !important;
+}
+
+.result-counterfeit {
+  border-left: 4px solid var(--error-red) !important;
+}
+
+.result-suspicious {
+  border-left: 4px solid var(--warning-yellow) !important;
+}
+
+/* Navigation active states */
+.nav-link.active {
+  color: var(--primary-blue) !important;
+}
+
+.nav-link.active::after {
+  background: var(--primary-blue) !important;
+}
+
+/* Scrollbars for dark mode */
+:root.dark-theme ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+:root.dark-theme ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+:root.dark-theme ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+:root.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection colors */
+:root.dark-theme ::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: var(--text-primary);
+}
+
+/* Focus states */
+:root.dark-theme *:focus {
+  outline-color: var(--primary-blue) !important;
+}
+
+/* Image and media adjustments for dark mode */
+:root.dark-theme img {
+  opacity: 0.9;
+  transition: opacity var(--transition-normal);
+}
+
+:root.dark-theme img:hover {
+  opacity: 1;
+}
+
+/* Code blocks (if any) */
+pre, code {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Utilities */
+.bg-primary {
+  background: var(--bg-primary) !important;
+}
+
+.bg-secondary {
+  background: var(--bg-secondary) !important;
+}
+
+.bg-tertiary {
+  background: var(--bg-tertiary) !important;
+}
+
+.border {
+  border: 1px solid var(--border-color) !important;
+}
+
+.border-top {
+  border-top: 1px solid var(--border-color) !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.border-left {
+  border-left: 1px solid var(--border-color) !important;
+}
+
+.border-right {
+  border-right: 1px solid var(--border-color) !important;
+}

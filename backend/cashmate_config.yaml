@@ -1,0 +1,49 @@
+# CashMate Philippine Banknotes Training Configuration
+# Adjust these parameters based on your system capabilities
+
+# Training Parameters
+epochs: 100                    # Number of training epochs (100-300 recommended)
+batch_size: 16                # Batch size (reduce if GPU memory issues)
+image_size: 640               # Input image size (416, 640, or 832)
+learning_rate: 0.01           # Initial learning rate
+patience: 15                  # Early stopping patience
+save_period: 10               # Save checkpoint every N epochs
+workers: 8                    # Number of data loading workers
+
+# Model Configuration
+model_architecture: "yolov8n" # yolov8n (fastest), yolov8s, yolov8m, yolov8l, yolov8x (most accurate)
+use_pretrained: true          # Use pretrained weights
+
+# Data Augmentation (0.0 = disabled, 1.0 = maximum)
+augmentation:
+  hsv_h: 0.015               # HSV-Hue augmentation
+  hsv_s: 0.7                 # HSV-Saturation augmentation  
+  hsv_v: 0.4                 # HSV-Value augmentation
+  degrees: 10.0              # Image rotation degrees
+  translate: 0.1             # Image translation fraction
+  scale: 0.5                 # Image scale variation
+  shear: 2.0                 # Image shear degrees
+  perspective: 0.0           # Image perspective
+  flipud: 0.0                # Vertical flip probability
+  fliplr: 0.5                # Horizontal flip probability
+  mosaic: 1.0                # Mosaic augmentation probability
+  mixup: 0.0                 # Mixup augmentation probability
+
+# Philippine Peso Classes (expected in dataset)
+classes:
+  - "1_peso"
+  - "5_peso" 
+  - "10_peso"
+  - "20_peso"
+  - "50_peso"
+  - "100_peso"
+  - "200_peso"
+  - "500_peso"
+  - "1000_peso"
+
+# Training Tips:
+# - Start with yolov8n for faster experimentation
+# - Increase batch_size if you have more GPU memory
+# - Reduce batch_size if you get CUDA out of memory errors
+# - Increase epochs for better accuracy (200-300 for production)
+# - Monitor validation loss - stop if it stops improving

@@ -1,0 +1,17 @@
+names:
+- '100'
+- '1000'
+- '20'
+- '200'
+- '50'
+- '500'
+nc: 6
+roboflow:
+  license: CC BY 4.0
+  project: cashmate-ph-banknotes-wrvan
+  url: https://universe.roboflow.com/cobra-mi40f/cashmate-ph-banknotes-wrvan/dataset/11
+  version: 11
+  workspace: cobra-mi40f
+test: valid/images
+train: train/images
+val: valid/images
