@@ -4,7 +4,7 @@
 
 ## Overview
 
-PesoScan is a web-based counterfeit detection platform for Philippine peso bills, combining a ReactJS frontend with a Python backend that integrates YOLOv8 for object detection and Convolutional Neural Networks (CNNs) for classification. The system allows users to scan or upload images of Philippine banknotes and receive automated authenticity classification.
+PesoScan is a web-based counterfeit detection platform for Philippine peso bills, combining a ReactJS frontend with a Python backend that integrates YOLOv8 for object detection and a hybrid ResNet-50 & MobileNetV3 architecture for classification. The system allows users to scan or upload images of Philippine banknotes and receive automated authenticity classification.
 
 ## System Architecture
 
@@ -16,7 +16,7 @@ PesoScan is a web-based counterfeit detection platform for Philippine peso bills
 
 ### Backend (Python/FastAPI)
 - **Object Detection**: YOLOv8 for peso bill localization
-- **Classification**: CNN for authenticity determination
+- **Classification**: Hybrid ResNet-50 & MobileNetV3 for authenticity determination
 - **API**: RESTful endpoints for image processing
 
 ## Features
@@ -63,7 +63,7 @@ pesoscan/
 
 ### AI/ML
 - **Object Detection**: YOLOv8 (Ultralytics)
-- **Classification**: Custom CNN model
+- **Classification**: Hybrid ResNet-50 & MobileNetV3 with Transfer Learning
 - **Training Data**: Philippine peso bill dataset
 
 ## Quick Start
@@ -105,7 +105,7 @@ pesoscan/
 1. **User Input**: Upload or scan peso bill image via ReactJS frontend
 2. **API Request**: Image sent to Python backend API
 3. **Detection**: YOLOv8 detects and crops peso bill from image
-4. **Classification**: CNN analyzes cropped bill for authenticity
+4. **Classification**: Hybrid ResNet-50 & MobileNetV3 analyzes cropped bill for authenticity
 5. **Response**: Backend returns JSON with authenticity decision and confidence
 6. **Display**: Frontend shows professional results with visual indicators
 
