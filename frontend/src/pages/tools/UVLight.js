@@ -4,7 +4,7 @@ import './UVLight.css';
 const UVLight = () => {
   const [isUVOn, setIsUVOn] = useState(false);
   const [intensity, setIntensity] = useState(75);
-  const [selectedPalette, setSelectedPalette] = useState('classic');
+  const [selectedPalette, setSelectedPalette] = useState('standard');
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
@@ -50,35 +50,20 @@ const UVLight = () => {
   }, [isFullscreen]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const uvPalettes = {
-    classic: {
-      name: 'Classic UV',
-      colors: ['#8B00FF', '#9932CC', '#4B0082'],
-      description: 'Traditional purple UV spectrum'
-    },
-    forensic: {
-      name: 'Forensic Blue',
-      colors: ['#0080FF', '#1E90FF', '#4169E1'],
-      description: 'Professional forensic analysis'
-    },
-    blacklight: {
-      name: 'Blacklight Purple',
-      colors: ['#6A0DAD', '#8A2BE2', '#9370DB'],
-      description: 'Standard blacklight emission'
-    },
-    medical: {
-      name: 'Medical Grade',
-      colors: ['#4700A3', '#5D00B8', '#7300CE'],
-      description: 'Medical UV sterilization'
+    standard: {
+      name: 'Standard UV',
+      colors: ['#4B0082', '#3B0062', '#2B0042'],
+      description: 'Professional UV authentication'
     },
     security: {
-      name: 'Security Scan',
-      colors: ['#0066CC', '#0080FF', '#3399FF'],
-      description: 'Document security verification'
+      name: 'Security Grade',
+      colors: ['#1a1a2e', '#16213e', '#0f1721'],
+      description: 'High-security document verification'
     },
-    laboratory: {
-      name: 'Lab Analysis',
-      colors: ['#AA00FF', '#CC00FF', '#FF00FF'],
-      description: 'Laboratory grade UV light'
+    forensic: {
+      name: 'Forensic',
+      colors: ['#1e3a5f', '#182d4a', '#122035'],
+      description: 'Forensic analysis mode'
     }
   };
 
@@ -153,9 +138,8 @@ const UVLight = () => {
             >
               {!isUVOn && (
                 <div className="uv-off-message">
-                  <div className="message-icon">💡</div>
                   <h3>UV Light Inactive</h3>
-                  <p>Click "Enable UV" to activate the ultraviolet light simulation</p>
+                  <p>Click "Enable UV" to activate</p>
                 </div>
               )}
               
@@ -172,9 +156,6 @@ const UVLight = () => {
                 className={`uv-button ${isUVOn ? 'active' : ''}`}
                 onClick={toggleUV}
               >
-                <div className="button-icon">
-                  {isUVOn ? '⚡' : '💡'}
-                </div>
                 <span>{isUVOn ? 'Disable UV' : 'Enable UV'}</span>
               </button>
 
@@ -195,9 +176,6 @@ const UVLight = () => {
                 className="fullscreen-button"
                 onClick={toggleFullscreen}
               >
-                <div className="button-icon">
-                  {isFullscreen ? '🗗' : '⛶'}
-                </div>
                 <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
               </button>
             </div>
@@ -207,7 +185,7 @@ const UVLight = () => {
         {/* UV Palette Selection Panel */}
         <div className="palette-panel">
           <div className="palette-selector-card">
-            <h3>UV Light Palette</h3>
+            <h3>UV Palette</h3>
             <div className="palettes-grid">
               {Object.entries(uvPalettes).map(([key, palette]) => (
                 <button
@@ -277,10 +255,9 @@ const UVLight = () => {
       {/* Footer Notice */}
       <footer className="uv-footer">
         <div className="notice">
-          <div className="notice-icon">ⓘ</div>
           <div className="notice-text">
-            <strong>UV Light Simulation:</strong> This tool provides various UV light color palettes for 
-            educational and testing purposes. For actual document authentication, use professional UV equipment.
+            <strong>Note:</strong> This UV light simulation is for educational purposes. 
+            For actual authentication, use professional UV equipment.
           </div>
         </div>
       </footer>
