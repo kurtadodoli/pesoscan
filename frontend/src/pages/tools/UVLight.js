@@ -52,17 +52,17 @@ const UVLight = () => {
   const uvPalettes = {
     standard: {
       name: 'Standard UV',
-      colors: ['#4B0082', '#3B0062', '#2B0042'],
+      colors: ['#9D4EDD', '#7B2CBF', '#5A189A'],
       description: 'Professional UV authentication'
     },
     security: {
       name: 'Security Grade',
-      colors: ['#1a1a2e', '#16213e', '#0f1721'],
+      colors: ['#4CC9F0', '#4895EF', '#4361EE'],
       description: 'High-security document verification'
     },
     forensic: {
       name: 'Forensic',
-      colors: ['#1e3a5f', '#182d4a', '#122035'],
+      colors: ['#7209B7', '#560BAD', '#3C096C'],
       description: 'Forensic analysis mode'
     }
   };
