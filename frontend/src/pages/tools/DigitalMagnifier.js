@@ -193,7 +193,7 @@ const DigitalMagnifier = () => {
     <div className="magnifier-container">
       <div className="magnifier-header">
         <h1>🔎 Digital Magnifier</h1>
-        <p>Professional magnification tool for detailed peso bill inspection</p>
+        <p>Professional magnification tool for detailed peso banknote inspection</p>
       </div>
 
       <div className="magnifier-main">

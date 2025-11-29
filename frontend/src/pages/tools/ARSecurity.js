@@ -109,7 +109,7 @@ const ARSecurity = () => {
     <div className="ar-security-container">
       <div className="ar-header">
         <h1>AR Security Overlay</h1>
-        <p>Real-time security feature detection for Philippine peso bills</p>
+        <p>Real-time security feature detection for Philippine peso banknotes</p>
       </div>
 
       <div className="ar-main-content">
@@ -224,8 +224,8 @@ const ARSecurity = () => {
               <div className="help-step">
                 <span className="step-number">1</span>
                 <div>
-                  <h4>Position Bill</h4>
-                  <p>Hold the peso bill steady in front of the camera</p>
+                  <h4>Position Banknote</h4>
+                  <p>Hold the peso banknote steady in front of the camera</p>
                 </div>
               </div>
               <div className="help-step">

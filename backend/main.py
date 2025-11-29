@@ -145,6 +145,16 @@ if FASTAPI_AVAILABLE:
             # Process with enhanced detection service
             result = await enhanced_detection_service.process_image(image)
             
+            # Get peso denomination for counterfeit analysis
+            peso_denomination = None
+            if result.result.detection:
+                peso_denomination = result.result.detection.class_name
+            
+            # Run counterfeit detection to get security features
+            counterfeit_analysis = await counterfeit_detection_service.analyze_counterfeit_features(
+                image, peso_denomination
+            )
+            
             # Convert result to dict for JSON response
             response_data = {
                 "id": result.id,
@@ -177,6 +187,30 @@ if FASTAPI_AVAILABLE:
                     "confidence": float(result.result.detection.confidence),  # Convert numpy float
                     "class_name": result.result.detection.class_name
                 }
+            
+            # Add counterfeit analysis with security features
+            response_data["counterfeit_analysis"] = convert_numpy_types(counterfeit_analysis)
+            
+            # Add security features to detections for bounding box visualization
+            if counterfeit_analysis.get("detected_features"):
+                response_data["result"]["all_detections"] = [
+                    {
+                        "type": "peso",
+                        "class_name": result.result.detection.class_name if result.result.detection else "unknown",
+                        "confidence": float(result.result.detection.confidence) if result.result.detection else 0.0,
+                        "bbox": convert_numpy_types(result.result.detection.bbox) if result.result.detection else None
+                    }
+                ] if result.result.detection else []
+                
+                # Add security features
+                for feature in counterfeit_analysis["detected_features"]:
+                    response_data["result"]["all_detections"].append({
+                        "type": "security",
+                        "class_name": feature.get("feature", "unknown"),
+                        "confidence": float(feature.get("confidence", 0.0)),
+                        "bbox": feature.get("bbox", {"x": 0, "y": 0, "width": 0, "height": 0}),
+                        "category": feature.get("category", "unknown")
+                    })
             
             # Apply numpy conversion to entire response
             response_data = convert_numpy_types(response_data)

@@ -1,33 +1,16 @@
 import { useDarkMode } from '../contexts/DarkModeContext';
 
-export const useDarkModeClasses = () => {
+export const useDarkModeClasses = (baseClass = '') => {
   const { isDarkMode } = useDarkMode();
   
-  const getPageClasses = (additionalClasses = '') => {
-    const baseClasses = 'page-container';
-    return `${baseClasses} ${additionalClasses}`.trim();
-  };
-  
-  const getSectionClasses = (isAlternate = false, additionalClasses = '') => {
-    const baseClasses = isAlternate ? 'section-alt' : 'section';
-    return `${baseClasses} ${additionalClasses}`.trim();
-  };
-  
-  const getCardClasses = (additionalClasses = '') => {
-    const baseClasses = 'dark-card';
-    return `${baseClasses} ${additionalClasses}`.trim();
-  };
-  
-  const getTextClasses = (type = 'primary', additionalClasses = '') => {
-    const baseClasses = `text-${type}`;
-    return `${baseClasses} ${additionalClasses}`.trim();
+  const getClasses = (additionalClasses = '') => {
+    const classes = [baseClass, additionalClasses].filter(Boolean).join(' ');
+    return isDarkMode ? `${classes} dark-mode` : classes;
   };
   
   return {
     isDarkMode,
-    getPageClasses,
-    getSectionClasses,
-    getCardClasses,
-    getTextClasses
+    getClasses,
+    darkModeClass: isDarkMode ? 'dark-mode' : ''
   };
 };

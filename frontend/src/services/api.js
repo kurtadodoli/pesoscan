@@ -165,9 +165,13 @@ export const getCounterfeitModelStatus = async () => {
  * @param {File|Blob} imageFile - The image to analyze
  * @returns {Promise<Object>} - Comprehensive analysis result
  */
-export const comprehensiveScan = async (imageFile) => {
+export const comprehensiveScan = async (imageFile, options = {}) => {
   const formData = new FormData();
   formData.append('file', imageFile);
+  const params = {};
+  if (options.dataset && options.dataset !== 'auto') {
+    params.dataset = options.dataset;
+  }
   
   try {
     const response = await api.post('/api/comprehensive-scan', formData, {
@@ -175,6 +179,7 @@ export const comprehensiveScan = async (imageFile) => {
         'Content-Type': 'multipart/form-data',
       },
       timeout: 45000, // Increased timeout for comprehensive analysis
+      params
     });
     
     return response.data;

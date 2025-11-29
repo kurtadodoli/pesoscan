@@ -1,0 +1,14 @@
+names:
+- broken
+- notbroken
+- torn
+nc: 3
+roboflow:
+  license: CC BY 4.0
+  project: broken-philippines-currency
+  url: https://universe.roboflow.com/mavrick-vquvj/broken-philippines-currency/dataset/3
+  version: 3
+  workspace: mavrick-vquvj
+test: C:\pesoscan\broken-philippines-currency-3\test\images
+train: C:\pesoscan\broken-philippines-currency-3\train\images
+val: C:\pesoscan\broken-philippines-currency-3\valid\images

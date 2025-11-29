@@ -12,25 +12,48 @@ export const useDarkMode = () => {
 
 export const DarkModeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme !== null) {
-      return savedTheme === 'true';
-    }
-    // Check system preference
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Check localStorage for saved preference
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
   });
 
   useEffect(() => {
-    // Save to localStorage
-    localStorage.setItem('darkMode', isDarkMode.toString());
+    // ===================================================================
+    // INSTANT THEME SWITCH - Works for BOTH dark-to-light AND light-to-dark
+    // ===================================================================
     
-    // Apply theme class to document
+    // STEP 1: Add .no-transitions class to FREEZE all transitions
+    document.documentElement.classList.add('no-transitions');
+    document.body.classList.add('no-transitions');
+    
+    // STEP 2: Force a reflow to ensure the freeze is applied
+    void document.body.offsetHeight;
+    
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+    
+    // STEP 3: Apply/remove theme classes INSTANTLY (all transitions frozen)
     if (isDarkMode) {
-      document.documentElement.classList.add('dark-theme');
+      // Switch to DARK mode
+      document.documentElement.classList.add('dark-mode');
+      document.body.classList.add('dark-mode');
     } else {
-      document.documentElement.classList.remove('dark-theme');
+      // Switch to LIGHT mode
+      document.documentElement.classList.remove('dark-mode');
+      document.body.classList.remove('dark-mode');
     }
+    
+    // STEP 4: Force another reflow to ensure theme is painted
+    void document.body.offsetHeight;
+    
+    // STEP 5: Remove .no-transitions class to restore hover effects
+    // Use requestAnimationFrame to ensure paint is complete
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('no-transitions');
+        document.body.classList.remove('no-transitions');
+      });
+    });
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {

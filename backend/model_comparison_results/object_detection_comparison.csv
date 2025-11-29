@@ -1,0 +1,7 @@
+Model,Researcher,Accuracy/mAP (%),Inference (ms),Size (MB),Real-time
+YOLOv3 (Baseline),Baseline Comparison,87.3,12.0,62.0,✓
+YOLOv5n (Baseline),Baseline Comparison,89.1,8.0,3.9,✓
+YOLO Generic (Kanawade),Kanawade et al. (2025),86.3,15.0,45.0,✓
+YOLOv8 Coins (Samaniego),Samaniego et al. (2024),96.5,8.0,6.0,✓
+YOLOv11 (Baseline),Baseline Comparison,91.8,7.0,5.2,✓
+YOLOv8n (PesoScan - OURS),PesoScan Team (2025),94.0,6.2,6.2,✓

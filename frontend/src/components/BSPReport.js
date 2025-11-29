@@ -65,22 +65,22 @@ const BSPReport = ({ scanResults, imageData }) => {
     
     if (score >= 90) {
       return [
-        'Bill appears authentic based on AI analysis',
+        'Banknote appears authentic based on AI analysis',
         'Continue with normal transaction procedures',
         'Consider additional verification if suspicious'
       ];
     } else if (score >= 70) {
       return [
-        'Bill shows some irregularities - exercise caution',
+        'Banknote shows some irregularities - exercise caution',
         'Verify with additional authentication methods',
         'Contact BSP if concerns persist'
       ];
     } else {
       return [
-        'Bill shows significant authenticity concerns',
+        'Banknote shows significant authenticity concerns',
         'Do not accept - potential counterfeit detected',
         'Report immediately to BSP and local authorities',
-        'Preserve bill as evidence if safe to do so'
+        'Preserve banknote as evidence if safe to do so'
       ];
     }
   };
@@ -111,7 +111,7 @@ Name: ${generatedReport.reporterName || 'Not provided'}
 Contact: ${generatedReport.reporterContact || 'Not provided'}
 Location: ${generatedReport.location || 'Not provided'}
 
-=== BILL ANALYSIS ===
+=== BANKNOTE ANALYSIS ===
 AI Authenticity Score: ${generatedReport.authenticityScore}%
 Risk Level: ${generatedReport.riskLevel}
 Features Detected: ${generatedReport.detectedFeatures}
@@ -186,12 +186,12 @@ Official verification should be conducted by BSP-authorized personnel.
                   type="text"
                   value={reportData.location}
                   onChange={(e) => handleInputChange('location', e.target.value)}
-                  placeholder="Where was the bill encountered?"
+                  placeholder="Where was the banknote encountered?"
                 />
               </div>
               
               <div className="form-group">
-                <label>Suspicion Level</label>
+                <label>Banknote Description</label>
                 <select
                   value={reportData.suspicionLevel}
                   onChange={(e) => handleInputChange('suspicionLevel', e.target.value)}

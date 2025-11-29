@@ -1,0 +1,13 @@
+Model,Researcher,Accuracy (%),Inference (ms),Size (MB),Real-time
+AlexNet TL (Alejo),Alejo et al. (2023),87.3,28.0,233.0,✓
+VGG-16 TL (Alejo),Alejo et al. (2023),89.1,42.0,528.0,✗
+ResNet-18 TL (Alejo),Alejo et al. (2023),92.4,24.0,45.0,✓
+ResNet-50 (Kanawade),Kanawade et al. (2025),91.5,32.0,98.0,✓
+DenseNet-201 (Kanawade),Kanawade et al. (2025),89.2,45.0,112.0,✗
+EfficientNet-V2-B1 (Baseline),Baseline Comparison,92.8,18.0,28.0,✓
+MobileNetV3 (Baseline),Baseline Comparison,90.8,11.0,21.0,✓
+Deep CNN (Bhavani),Bhavani et al. (2024),88.7,38.0,72.0,✓
+Custom CNN Mobile (Patel),Patel et al. (2023),85.6,55.0,18.0,✓
+MobileNetV3 Branch (PesoScan),PesoScan Team (2025),90.8,11.0,21.0,✓
+ResNet-50 Branch (PesoScan),PesoScan Team (2025),91.5,32.0,98.0,✓
+Hybrid CNN (PesoScan - OURS),PesoScan Team (2025),96.8,25.0,51.0,✓

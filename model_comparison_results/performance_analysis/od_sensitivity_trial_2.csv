@@ -1,0 +1,5 @@
+Criteria,Weight (wt),YOLOv8 S,YOLOv8 S(W),YOLOv7 S,YOLOv7 S(W),YOLOv5 S,YOLOv5 S(W)
+mAP@50,0.1,9.88,0.99,9.85,0.98,9.55,0.96
+F1-score,0.8,9.9,7.92,8.92,7.14,9.67,7.74
+Inference Speed,0.1,9.91,0.99,8.26,0.83,7.17,0.72
+Total Score,,,9.9,,8.95,,9.42

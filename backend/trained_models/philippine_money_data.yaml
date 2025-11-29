@@ -1,0 +1,19 @@
+# Philippine Money Detection Dataset
+# Downloaded from: https://universe.roboflow.com/philippine-money-jczbl/philippine-money-hjn3v
+
+nc: 6  # number of classes
+names: ['20-peso', '50-peso', '100-peso', '200-peso', '500-peso', '1000-peso']
+
+# Paths (relative to this file)
+path: ./datasets/philippine-money-hjn3v-1
+train: train/images
+val: valid/images
+test: test/images
+
+# Additional info
+roboflow:
+  workspace: philippine-money-jczbl
+  project: philippine-money-hjn3v
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/philippine-money-jczbl/philippine-money-hjn3v

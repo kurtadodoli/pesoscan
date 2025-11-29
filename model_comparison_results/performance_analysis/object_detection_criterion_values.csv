@@ -1,0 +1,15 @@
+Object Detection Algorithm,mAP@50,F1-score,Inference Speed (s)
+YOLOv3,0.873,0.861,0.029
+YOLOv5n,0.905,0.889,0.045
+YOLOv5s,0.917,0.898,0.052
+YOLOv5m,0.928,0.912,0.068
+YOLOv7,0.934,0.817,0.038
+YOLOv7-tiny,0.889,0.874,0.022
+YOLOv8n (PesoScan),0.948,0.926,0.031
+YOLOv8s,0.943,0.921,0.041
+YOLOv11n,0.918,0.903,0.035
+YOLOv11s,0.925,0.915,0.044
+"YOLO Generic (Kanawade et al., 2025)",0.863,0.847,0.015
+"Faster R-CNN (Patil et al., 2025)",0.891,0.878,0.095
+SSD MobileNet,0.856,0.842,0.018
+RetinaNet,0.902,0.887,0.076

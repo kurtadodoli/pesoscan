@@ -8,14 +8,14 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h4>PesoScan</h4>
-            <p>Smart counterfeit detection for Philippine peso bills using AI technology.</p>
+            <p>PesoScan: A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8</p>
           </div>
           
           <div className="footer-section">
             <h5>Quick Links</h5>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/scan">Scan Bill</a></li>
+              <li><a href="/scan">Scan Banknote</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/history">History</a></li>
             </ul>

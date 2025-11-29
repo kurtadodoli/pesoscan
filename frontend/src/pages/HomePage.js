@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
-import { useDarkModeClasses } from '../hooks/useDarkModeClasses';
 import './HomePage.css';
 
 const HomePage = () => {
-  const { getPageClasses } = useDarkModeClasses();
-  
   return (
-    <div className={getPageClasses("home-page")}>
+    <div className="home-page">
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
@@ -21,9 +18,7 @@ const HomePage = () => {
             </h1>
             <p className="hero-subtitle">Advanced Counterfeit Detection System</p>
             <p className="hero-description">
-              Secure your transactions with AI-powered peso bill authentication.
-              <br/>
-              Precision-trained YOLOv8 model with 94.0% accuracy detecting 41+ security features.
+              PesoScan: A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8
             </p>
             
             <div className="action-buttons">
@@ -44,19 +39,92 @@ const HomePage = () => {
                 Upload Image
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="metrics">
-              <div className="metric">
-                <span className="metric-value">94.0%</span>
-                <span className="metric-label">Accuracy</span>
+      <section className="denominations-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Supported Denominations</h2>
+            <p className="section-subtitle">
+              Comprehensive support for all Philippine currency - both paper and polymer banknotes, plus coins.
+            </p>
+          </div>
+          
+          <div className="denominations-carousel">
+            <div className="carousel-track">
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/20_Paper.jpg" alt="20 Peso Paper Banknote" className="banknote-image" />
+                </div>
               </div>
-              <div className="metric">
-                <span className="metric-value">41+</span>
-                <span className="metric-label">Features</span>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/50_Polymer.png" alt="50 Peso Polymer Banknote" className="banknote-image" />
+                </div>
               </div>
-              <div className="metric">
-                <span className="metric-value">&lt;2s</span>
-                <span className="metric-label">Processing</span>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/100_Paper.jpg" alt="100 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/200_Paper.jpg" alt="200 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/500_Paper.jpg" alt="500 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/1000_Paper.png" alt="1000 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              {/* Duplicate for seamless loop */}
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/20_Paper.jpg" alt="20 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/50_Polymer.png" alt="50 Peso Polymer Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/100_Paper.jpg" alt="100 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/200_Paper.jpg" alt="200 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/500_Paper.jpg" alt="500 Peso Paper Banknote" className="banknote-image" />
+                </div>
+              </div>
+              
+              <div className="denomination-card">
+                <div className="banknote-image-wrapper">
+                  <img src="/banknotes/1000_Paper.png" alt="1000 Peso Paper Banknote" className="banknote-image" />
+                </div>
               </div>
             </div>
           </div>
@@ -68,7 +136,7 @@ const HomePage = () => {
           <div className="section-header">
             <h2 className="section-title">Key Features</h2>
             <p className="section-subtitle">
-              Professional-grade counterfeit detection powered by advanced AI
+              Professional-grade counterfeit detection powered by advanced computer vision
             </p>
           </div>
           
@@ -81,7 +149,7 @@ const HomePage = () => {
                 </svg>
               </div>
               <h3>Multi-Feature Detection</h3>
-              <p>Simultaneously analyzes 41+ security features with precision-trained YOLOv8 model achieving 94.0% accuracy.</p>
+              <p>Simultaneously analyzes multiple security features with precision-trained YOLOv8 model for comprehensive authenticity verification.</p>
             </div>
             
             <div className="feature-card">
@@ -124,7 +192,7 @@ const HomePage = () => {
           <div className="section-header">
             <h2 className="section-title">Advanced Features</h2>
             <p className="section-subtitle">
-              Professional tools for comprehensive bill authentication
+              Professional tools for comprehensive banknote authentication
             </p>
           </div>
           
@@ -155,7 +223,7 @@ const HomePage = () => {
                 </svg>
               </div>
               <h3>UV Detection Simulation</h3>
-              <p>Advanced AI simulates ultraviolet light detection to identify UV-reactive security features on peso bills.</p>
+              <p>Advanced computer vision simulates ultraviolet light detection to identify UV-reactive security features on peso banknotes.</p>
               <div className="feature-status beta">BETA</div>
             </div>
 
@@ -183,32 +251,9 @@ const HomePage = () => {
                   <line x1="8" y1="11" x2="14" y2="11" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
-              <h3>Bill Magnifier</h3>
-              <p>High-resolution magnification tool with security feature guide to examine peso bills in precise detail.</p>
+              <h3>Banknote Magnifier</h3>
+              <p>High-resolution magnification tool with security feature guide to examine peso banknotes in precise detail.</p>
               <div className="feature-status new">NEW</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <section className="performance-section">
-        <div className="container">
-          <div className="performance-grid">
-            <div className="performance-item">
-              <div className="performance-number">94.0%</div>
-              <div className="performance-label">Model Accuracy</div>
-            </div>
-            <div className="performance-item">
-              <div className="performance-number">41+</div>
-              <div className="performance-label">Security Features</div>
-            </div>
-            <div className="performance-item">
-              <div className="performance-number">&lt;2s</div>
-              <div className="performance-label">Processing Time</div>
-            </div>
-            <div className="performance-item">
-              <div className="performance-number">100%</div>
-              <div className="performance-label">Secure & Private</div>
             </div>
           </div>
         </div>

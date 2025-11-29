@@ -1,0 +1,340 @@
+/* ===================================================================== */
+/* INSTANT THEME SWITCH - TRANSITION FREEZE CLASS                        */
+/* ===================================================================== */
+
+/* 
+ * When .no-transitions class is added to html/body, ALL transitions stop
+ * This ensures 100% instant theme switching in both directions
+ */
+
+/* The nuclear freeze class - stops ALL transitions completely */
+.no-transitions,
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after,
+html.no-transitions,
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after,
+body.no-transitions,
+body.no-transitions *,
+body.no-transitions *::before,
+body.no-transitions *::after {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  animation: none !important;
+  transition-property: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+
+/* Override CSS variables during freeze */
+html.no-transitions,
+body.no-transitions {
+  --transition-fast: 0s !important;
+  --transition-normal: 0s !important;
+  --transition-slow: 0s !important;
+}
+
+/* Specific elements that might have inline styles */
+html.no-transitions .navbar,
+html.no-transitions .navbar *,
+html.no-transitions .card,
+html.no-transitions .card *,
+html.no-transitions button,
+html.no-transitions button *,
+html.no-transitions input,
+html.no-transitions input *,
+html.no-transitions div,
+html.no-transitions section,
+html.no-transitions article,
+html.no-transitions header,
+html.no-transitions footer,
+html.no-transitions nav,
+html.no-transitions main,
+body.no-transitions .navbar,
+body.no-transitions .navbar *,
+body.no-transitions .card,
+body.no-transitions .card *,
+body.no-transitions button,
+body.no-transitions button *,
+body.no-transitions input,
+body.no-transitions input *,
+body.no-transitions div,
+body.no-transitions section,
+body.no-transitions article,
+body.no-transitions header,
+body.no-transitions footer,
+body.no-transitions nav,
+body.no-transitions main {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+/* ===================================================================== */
+/* SPECIFIC ELEMENT OVERRIDES FOR EXTRA ENFORCEMENT                     */
+/* ===================================================================== */
+
+/* Navbar and navigation */
+.navbar,
+.navbar *,
+.navbar-brand,
+.nav-link,
+.dropdown-menu,
+.dropdown-item,
+.nav-item {
+  transition: none !important;
+}
+
+/* Cards and containers */
+.card,
+.card *,
+.hero-card,
+.feature-card,
+.scan-container,
+.results-container {
+  transition: none !important;
+}
+
+/* Buttons and interactive elements */
+button,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+input,
+textarea,
+select {
+  transition: none !important;
+}
+
+/* Structural elements */
+div,
+span,
+section,
+article,
+header,
+footer,
+nav,
+aside,
+main,
+body,
+html {
+  transition: none !important;
+}
+
+/* SVG and icons */
+svg,
+svg *,
+path,
+circle,
+rect {
+  transition: none !important;
+}
+
+/* Special overrides for styled elements */
+[style*="transition"],
+[style*="border"],
+[style*="box-shadow"],
+[class*="shadow"] {
+  transition: none !important;
+}
+
+/* Hover states should also have no transition during theme switch */
+*:hover,
+*:focus,
+*:active {
+  transition: none !important;
+}
+
+
+/* Ensure navbar elements switch instantly */
+.navbar,
+.navbar *,
+.navbar-brand,
+.nav-link,
+.dropdown-menu,
+.dropdown-item {
+  transition: none !important;
+}
+
+/* Ensure cards switch instantly */
+.card,
+.card *,
+.hero-card,
+.feature-card,
+.scan-container,
+.results-container {
+  transition: none !important;
+}
+
+/* Ensure buttons switch instantly */
+button,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  transition: none !important;
+}
+
+/* Ensure forms switch instantly */
+input,
+textarea,
+select {
+  transition: none !important;
+}
+
+/* Ensure all structural elements switch instantly */
+div,
+span,
+section,
+article,
+header,
+footer,
+nav,
+aside,
+main {
+  transition: none !important;
+}
+
+/* Ensure SVG elements switch instantly */
+svg,
+svg * {
+  transition: none !important;
+}
+
+/* Kill all border transitions */
+[style*="border"] {
+  transition: none !important;
+}
+
+/* Kill all box-shadow transitions */
+[style*="box-shadow"],
+[class*="shadow"] {
+  transition: none !important;
+}
+
+/* Ensure navbar transitions instantly */
+.navbar,
+.navbar *,
+.navbar-brand,
+.nav-link,
+.dropdown-menu,
+.dropdown-item {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Ensure cards transition instantly */
+.card,
+.card *,
+.hero-card,
+.feature-card,
+.scan-container,
+.results-container {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Ensure buttons transition instantly */
+button,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Ensure forms transition instantly */
+input,
+textarea,
+select {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Ensure all border-related properties transition together */
+[style*="border"] {
+  transition: border-color 0.2s ease 0s, border-top-color 0.2s ease 0s, border-right-color 0.2s ease 0s, border-bottom-color 0.2s ease 0s, border-left-color 0.2s ease 0s !important;
+}
+
+/* Force all elements with borders to transition synchronously */
+div,
+span,
+section,
+article,
+header,
+footer,
+nav,
+aside,
+main {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Remove any delayed transitions on pseudo-elements */
+::before,
+::after {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s, opacity 0.2s ease 0s !important;
+}
+
+/* Ensure no element can override these transitions */
+.dark-mode,
+.dark-mode * {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s, box-shadow 0.2s ease 0s !important;
+}
+
+/* Override any component-specific transition delays */
+[class*="transition"],
+[style*="transition"] {
+  transition-delay: 0s !important;
+}
+
+/* Ensure SVG elements transition */
+svg,
+svg * {
+  transition: fill 0.2s ease 0s, stroke 0.2s ease 0s !important;
+}
+
+/* Force immediate box-shadow transitions */
+[style*="box-shadow"],
+[class*="shadow"] {
+  transition: box-shadow 0.2s ease 0s !important;
+}
+
+/* Override any animation delays */
+@keyframes darkModeTransition {
+  from { opacity: 1; }
+  to { opacity: 1; }
+}
+
+/* Prevent any staggered animations */
+* {
+  animation-delay: 0s !important;
+}
+
+/* Ensure images maintain their transitions but don't delay other elements */
+img {
+  transition: opacity 0.2s ease 0s !important;
+}
+
+/* Make sure dropdown menus transition instantly */
+.dropdown-menu,
+.dropdown-item,
+.nav-item,
+.nav-link {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Ensure hover states don't interfere with dark mode transitions */
+*:hover {
+  transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, color 0.2s ease 0s !important;
+}
+
+/* Force all border styles to transition together */
+* {
+  transition-property: background-color, background, color, border-color, border-top-color, border-right-color, border-bottom-color, border-left-color, box-shadow !important;
+}

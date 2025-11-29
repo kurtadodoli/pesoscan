@@ -1,6 +1,6 @@
 /* Global Styles and CSS Variables */
 :root {
-  /* Light mode colors */
+  /* Colors */
   --primary-blue: #1e3a8a;
   --primary-teal: #0d9488;
   --secondary-blue: #3b82f6;
@@ -12,53 +12,6 @@
   --error-red: #ef4444;
   --warning-yellow: #f59e0b;
   
-  /* Theme-aware colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-  --border-color: #e5e7eb;
-  --border-light: #f3f4f6;
-  --card-bg: #ffffff;
-  --nav-bg: #ffffff;
-  --hover-bg: rgba(0, 0, 0, 0.05);
-  --active-bg: rgba(30, 58, 138, 0.05);
-  --shadow-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Dark mode colors */
-:root.dark-theme {
-  --primary-blue: #60a5fa;
-  --primary-teal: #14b8a6;
-  --secondary-blue: #3b82f6;
-  --accent-white: #1f2937;
-  --accent-silver: #6b7280;
-  --text-dark: #f9fafb;
-  --text-light: #d1d5db;
-  --success-green: #34d399;
-  --error-red: #f87171;
-  --warning-yellow: #fbbf24;
-  
-  /* Dark theme-aware colors */
-  --bg-primary: #111827;
-  --bg-secondary: #1f2937;
-  --bg-tertiary: #374151;
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --border-color: #374151;
-  --border-light: #4b5563;
-  --card-bg: #1f2937;
-  --nav-bg: #1f2937;
-  --hover-bg: rgba(255, 255, 255, 0.1);
-  --active-bg: rgba(96, 165, 250, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Common variables for both themes */
-:root, :root.dark-theme {
   /* Typography */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
@@ -100,11 +53,10 @@ body {
   font-family: var(--font-primary);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  background-color: var(--accent-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -131,7 +83,7 @@ h3 {
 
 p {
   margin-bottom: var(--spacing-sm);
-  color: var(--text-secondary);
+  color: var(--text-light);
 }
 
 /* Container */
@@ -212,12 +164,11 @@ p {
 
 /* Cards */
 .card {
-  background: var(--card-bg);
+  background: var(--accent-white);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+  box-shadow: var(--shadow-md);
   padding: var(--spacing-lg);
   transition: all var(--transition-normal);
-  border: 1px solid var(--border-color);
 }
 
 .card:hover {
@@ -247,19 +198,6 @@ p {
 
 .logo:hover {
   transform: scale(1.05);
-}
-
-.logo-animated {
-  animation: logoGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-  0% {
-    filter: drop-shadow(0 0 2px rgba(26, 54, 93, 0.3));
-  }
-  100% {
-    filter: drop-shadow(0 0 8px rgba(67, 153, 225, 0.6));
-  }
 }
 
 /* Logo scanning animation */
@@ -330,6 +268,32 @@ p {
 .gap-2 { gap: var(--spacing-sm); }
 .gap-3 { gap: var(--spacing-md); }
 .gap-4 { gap: var(--spacing-lg); }
+
+/* Scrollbar Styling for Light Mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+  transition: background-color var(--transition-normal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
 
 /* Responsive */
 @media (max-width: 768px) {

@@ -1,0 +1,7 @@
+Algorithm,Accuracy S,Accuracy W,F1-score S,F1-score W,Inference Speed S,Inference Speed W,Total Score,Weight
+Custom CNN,9.91,1.98,9.93,5.96,9.88,1.98,9.92,"Accuracy=0.2, F1=0.6, Speed=0.2"
+MobileNet V3,9.89,1.98,9.88,5.93,9.07,1.81,9.72,"Accuracy=0.2, F1=0.6, Speed=0.2"
+ResNet-50,9.82,1.96,9.84,5.9,8.29,1.66,9.52,"Accuracy=0.2, F1=0.6, Speed=0.2"
+EfficientNet-V2,9.83,1.97,9.89,5.93,7.32,1.46,9.36,"Accuracy=0.2, F1=0.6, Speed=0.2"
+DenseNet-201,9.84,1.97,9.82,5.89,5.37,1.07,8.93,"Accuracy=0.2, F1=0.6, Speed=0.2"
+VGG-16,9.6,1.92,9.55,5.73,2.11,0.42,8.07,"Accuracy=0.2, F1=0.6, Speed=0.2"

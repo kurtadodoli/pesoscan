@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { DarkModeProvider } from './contexts/DarkModeContext';
 import './styles/globals.css';
+import './styles/dark-mode-sync.css';
 import './styles/dark-mode.css';
+import { DarkModeProvider } from './contexts/DarkModeContext';
 
 // Import pages
 import HomePage from './pages/HomePage';

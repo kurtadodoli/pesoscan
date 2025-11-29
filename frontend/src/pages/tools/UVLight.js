@@ -129,7 +129,7 @@ const UVLight = () => {
         <div className="header-content">
           <div className="title-section">
             <h1>UV Light Detection</h1>
-            <p>Professional UV authentication for Philippine peso bills</p>
+            <p>Professional UV authentication for Philippine peso banknotes</p>
           </div>
           <div className="status-section">
             <div className={`uv-status ${isUVOn ? 'active' : 'inactive'}`}>

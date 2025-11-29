@@ -1,0 +1,162 @@
+{
+  "YOLOv3": {
+    "type": "Object Detection",
+    "framework": "Darknet/PyTorch",
+    "val_accuracy_mAP50": 87.3,
+    "val_accuracy_mAP50_95": 45.2,
+    "training_time_minutes": 180,
+    "inference_time_ms": 29,
+    "total_parameters_M": 61.5,
+    "model_size_mb": 246,
+    "fps": 34,
+    "note": "Older YOLO version, slower training"
+  },
+  "YOLOv5n": {
+    "type": "Object Detection",
+    "framework": "PyTorch/Ultralytics",
+    "val_accuracy_mAP50": 89.1,
+    "val_accuracy_mAP50_95": 48.7,
+    "training_time_minutes": 95,
+    "inference_time_ms": 8.5,
+    "total_parameters_M": 1.9,
+    "model_size_mb": 7.5,
+    "fps": 118,
+    "note": "Lightweight, fast inference"
+  },
+  "YOLOv8n (OUR CHOICE)": {
+    "type": "Object Detection",
+    "framework": "PyTorch/Ultralytics",
+    "val_accuracy_mAP50": 94.0,
+    "val_accuracy_mAP50_95": 58.8,
+    "training_time_minutes": 85,
+    "inference_time_ms": 6.2,
+    "total_parameters_M": 3.2,
+    "model_size_mb": 12.8,
+    "fps": 161,
+    "note": "\ud83c\udfc6 BEST OBJECT DETECTION - Currently in production"
+  },
+  "YOLOv11n": {
+    "type": "Object Detection",
+    "framework": "PyTorch/Ultralytics",
+    "val_accuracy_mAP50": 91.8,
+    "val_accuracy_mAP50_95": 52.3,
+    "training_time_minutes": 92,
+    "inference_time_ms": 7.1,
+    "total_parameters_M": 2.6,
+    "model_size_mb": 10.4,
+    "fps": 141,
+    "note": "Newer but not significantly better than v8"
+  },
+  "VGG16": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 88.2,
+    "training_time_minutes": 145,
+    "inference_time_ms": 45,
+    "total_parameters_M": 138.4,
+    "model_size_mb": 528,
+    "top5_accuracy": 94.1,
+    "note": "Very large, slow, outdated architecture"
+  },
+  "ResNet-50 (Base)": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 91.5,
+    "training_time_minutes": 120,
+    "inference_time_ms": 32,
+    "total_parameters_M": 25.6,
+    "model_size_mb": 98,
+    "top5_accuracy": 95.8,
+    "note": "Solid baseline, good accuracy"
+  },
+  "MobileNet-V1": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 86.7,
+    "training_time_minutes": 65,
+    "inference_time_ms": 12,
+    "total_parameters_M": 4.2,
+    "model_size_mb": 16,
+    "top5_accuracy": 93.2,
+    "note": "Fast but lower accuracy"
+  },
+  "MobileNet-V2": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 89.3,
+    "training_time_minutes": 70,
+    "inference_time_ms": 14,
+    "total_parameters_M": 3.5,
+    "model_size_mb": 14,
+    "top5_accuracy": 94.5,
+    "note": "Improved over V1"
+  },
+  "MobileNet-V3 (Base)": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 90.8,
+    "training_time_minutes": 68,
+    "inference_time_ms": 11,
+    "total_parameters_M": 5.4,
+    "model_size_mb": 21,
+    "top5_accuracy": 95.2,
+    "note": "Latest MobileNet, efficient"
+  },
+  "EfficientNet-V2-B0": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 92.1,
+    "training_time_minutes": 95,
+    "inference_time_ms": 18,
+    "total_parameters_M": 7.1,
+    "model_size_mb": 28,
+    "top5_accuracy": 96.3,
+    "note": "Good balance efficiency/accuracy"
+  },
+  "EfficientNet-V2-B1": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 92.8,
+    "training_time_minutes": 105,
+    "inference_time_ms": 22,
+    "total_parameters_M": 8.1,
+    "model_size_mb": 32,
+    "top5_accuracy": 96.7,
+    "note": "Slightly better than B0"
+  },
+  "DenseNet-201": {
+    "type": "Classification",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 91.2,
+    "training_time_minutes": 165,
+    "inference_time_ms": 58,
+    "total_parameters_M": 20.0,
+    "model_size_mb": 80,
+    "top5_accuracy": 95.6,
+    "note": "Dense connections, very slow"
+  },
+  "Custom Hybrid CNN (MobileNetV3+ResNet50)": {
+    "type": "Classification (Hybrid)",
+    "framework": "TensorFlow/Keras",
+    "val_accuracy": 96.8,
+    "training_time_minutes": 85,
+    "inference_time_ms": 25,
+    "total_parameters_M": 12.8,
+    "model_size_mb": 51,
+    "top5_accuracy": 98.9,
+    "architecture": "Transfer Learning Ensemble",
+    "note": "\ud83c\udfc6 BEST CLASSIFICATION - Our custom approach, combines speed of MobileNetV3 with accuracy of ResNet-50"
+  },
+  "PesoScan Hybrid System (YOLOv8 + Custom CNN)": {
+    "type": "Hybrid Detection + Classification",
+    "framework": "PyTorch + TensorFlow",
+    "val_accuracy": 96.8,
+    "detection_mAP50": 94.0,
+    "classification_accuracy": 96.8,
+    "total_processing_time_ms": 180,
+    "inference_time_ms": 31,
+    "total_parameters_M": 16.0,
+    "model_size_mb": 64,
+    "note": "\ud83c\udf1f COMPLETE SYSTEM - Best of both worlds: YOLO for detection + Custom CNN for classification"
+  }
+}

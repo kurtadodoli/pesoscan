@@ -24,6 +24,10 @@ const ResultsPage = () => {
 
   // Handle different result formats
   const isComprehensive = scanType === 'comprehensive';
+  const isUnified = result.result?.unified_detection || false; // Check for unified detection
+  
+  // For unified scan (counterfeit + broken currency detection)
+  const unifiedDetection = result.result?.unified_detection;
   
   // For comprehensive scan with enhanced counterfeit detection
   const overallAssessment = result.overall_assessment;
@@ -37,27 +41,51 @@ const ResultsPage = () => {
   const basicResult = result.result;
   
   // Extract common values based on scan type with enhanced counterfeit detection
-  const isAuthentic = isComprehensive 
-    ? overallAssessment?.authenticity_score >= 0.55  // Lowered threshold for clearer detection
-    : basicResult?.authentic;
+  const isAuthentic = isUnified
+    ? unifiedDetection?.counterfeit_analysis?.authentic !== false
+    : isComprehensive 
+      ? overallAssessment?.authenticity_score >= 0.55  // Lowered threshold for clearer detection
+      : basicResult?.authentic;
     
-  const confidence = isComprehensive
-    ? Math.round((overallAssessment?.authenticity_score || 0) * 100)
-    : Math.round(basicResult?.confidence || 0);
+  const confidence = isUnified
+    ? Math.round(unifiedDetection?.counterfeit_analysis?.confidence || 0)
+    : isComprehensive
+      ? Math.round((overallAssessment?.authenticity_score || 0) * 100)
+      : Math.round(basicResult?.confidence || 0);
     
   const counterfeitProbability = isComprehensive
     ? Math.round((overallAssessment?.counterfeit_probability || 0) * 100)
     : (100 - confidence);
+
+  // Extract currency condition for unified detection
+  const currencyCondition = isUnified 
+    ? unifiedDetection?.broken_analysis?.condition || 'unknown'
+    : 'good';
+    
+  const isUsable = isUnified
+    ? unifiedDetection?.broken_analysis?.condition === 'good' || unifiedDetection?.broken_analysis?.condition === 'notbroken'
+    : true;
     
   // Extract peso denomination from detections
   const getPesoDenomination = () => {
     // Debug: Log all available data
     console.log('DEBUG - Full result data:', result);
     console.log('DEBUG - isComprehensive:', isComprehensive);
+    console.log('DEBUG - isUnified:', isUnified);
+    console.log('DEBUG - unifiedDetection:', unifiedDetection);
     console.log('DEBUG - overallAssessment:', overallAssessment);
     console.log('DEBUG - basicResult:', basicResult);
     console.log('DEBUG - yoloDetections:', yoloDetections);
     console.log('DEBUG - pesoScan:', pesoScan);
+    
+    // For unified detection, try the denomination from counterfeit analysis
+    if (isUnified && unifiedDetection?.counterfeit_analysis?.denomination) {
+      const unifiedDenom = unifiedDetection.counterfeit_analysis.denomination;
+      console.log('DEBUG - unified denomination:', unifiedDenom);
+      if (/^\d+$/.test(unifiedDenom.toString())) {
+        return unifiedDenom;
+      }
+    }
     
     // First try the official denomination field
     const officialDenomination = isComprehensive
@@ -149,6 +177,14 @@ const ResultsPage = () => {
   
   // Determine authenticity status with clear messaging
   const getAuthenticityStatus = () => {
+    if (isUnified) {
+      const overallStatus = unifiedDetection?.overall_status || '';
+      if (overallStatus === 'counterfeit') return 'Counterfeit';
+      if (overallStatus === 'damaged') return `Authentic (${currencyCondition})`;
+      if (overallStatus === 'authentic_good') return 'Authentic';
+      return 'Unknown';
+    }
+    
     if (!isComprehensive) {
       return isAuthentic ? 'Authentic' : 'Counterfeit';
     }
@@ -161,6 +197,14 @@ const ResultsPage = () => {
   };
   
   const getStatusColor = () => {
+    if (isUnified) {
+      const overallStatus = unifiedDetection?.overall_status || '';
+      if (overallStatus === 'counterfeit') return 'counterfeit';
+      if (overallStatus === 'damaged') return 'damaged';
+      if (overallStatus === 'authentic_good') return 'authentic';
+      return 'unknown';
+    }
+    
     if (!isComprehensive) {
       return isAuthentic ? 'authentic' : 'counterfeit';
     }
@@ -226,6 +270,19 @@ const ResultsPage = () => {
         <div className="results-header">
           <h1>Scan Results</h1>
           
+          {/* Unified Detection Indicator */}
+          {isUnified && (
+            <div className="unified-detection-badge">
+              <span className="badge-icon">🔬</span>
+              <div className="badge-content">
+                <span className="badge-title">Comprehensive Analysis Complete</span>
+                <span className="badge-description">
+                  Counterfeit Detection • Physical Condition • Authenticity Verification
+                </span>
+              </div>
+            </div>
+          )}
+          
           {/* Main Authentication Status Indicator */}
           <div className="main-status-indicator">
             <div className={`main-status ${getStatusColor()}`}>
@@ -249,6 +306,19 @@ const ResultsPage = () => {
                 {denomination && (
                   <span className="main-denomination">₱{denomination}</span>
                 )}
+                {/* Add unified detection specific information */}
+                {isUnified && (
+                  <div className="unified-status-info">
+                    {currencyCondition !== 'good' && currencyCondition !== 'notbroken' && currencyCondition !== 'unknown' && (
+                      <span className={`condition-status ${currencyCondition}`}>
+                        Condition: {currencyCondition.charAt(0).toUpperCase() + currencyCondition.slice(1)}
+                      </span>
+                    )}
+                    {!isUsable && (
+                      <span className="usability-warning">⚠️ Not Recommended for Use</span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -266,13 +336,27 @@ const ResultsPage = () => {
               </div>
               
               <div className="analyzed-image">
-                <img src={imageUrl} alt="Analyzed peso bill" />
+                <img src={imageUrl} alt="Analyzed peso banknote" />
                 
                 {/* Enhanced bounding boxes from trained models */}
                 {(() => {
                   // Get all available detections from different sources
                   const pesoDetections = pesoScan?.result?.detections || [];
                   const combinedDetections = result.combined_detections;
+                  
+                  // FIXED: Get unified detection results - check multiple possible locations
+                  const brokenDetections = unifiedDetection?.broken_detection?.detections || [];
+                  const counterfeitDetections = unifiedDetection?.counterfeit_detection?.detections || [];
+                  
+                  // IMPORTANT: Also check the flat detections array from result.result.detections
+                  const flatDetections = result.result?.detections || [];
+                  
+                  console.log('🔍 BBOX DEBUG - brokenDetections:', brokenDetections.length);
+                  console.log('🔍 BBOX DEBUG - counterfeitDetections:', counterfeitDetections.length);
+                  console.log('🔍 BBOX DEBUG - flatDetections:', flatDetections.length);
+                  if (flatDetections.length > 0) {
+                    console.log('🔍 BBOX DEBUG - First flat detection:', flatDetections[0]);
+                  }
                   
                   // Helper function to convert bbox format and ensure valid positioning
                   const normalizeBbox = (bbox) => {
@@ -300,10 +384,68 @@ const ResultsPage = () => {
                     return [x1, y1, x2, y2];
                   };
                   
-                  // Prioritize combined detections if available
+                  // Prioritize unified detection results first
                   let allDetections = [];
                   
-                  if (combinedDetections) {
+                  // Add broken currency detections (from unified detection)
+                  // EXCLUDE "notbroken" - only show actual damage
+                  if (isUnified && brokenDetections && brokenDetections.length > 0) {
+                    allDetections = allDetections.concat(
+                      brokenDetections
+                        .filter(d => d.class_name !== 'notbroken') // EXCLUDE good condition boxes
+                        .map((d, i) => ({
+                          ...d,
+                          source: 'broken_currency_model',
+                          display_name: d.class_name === 'broken' ? '💔 Broken' : 
+                                       d.class_name === 'torn' ? '🪓 Torn' : 
+                                       d.class_name === 'damaged' ? '⚠️ Damaged' : 
+                                       d.class_name,
+                          bbox: normalizeBbox(d.bbox),
+                          confidence: d.confidence,
+                          color_class: `broken-currency-${i % 3}`
+                        }))
+                    );
+                  }
+                  
+                  // Add counterfeit detections (from unified detection)
+                  if (isUnified && counterfeitDetections && counterfeitDetections.length > 0) {
+                    allDetections = allDetections.concat(
+                      counterfeitDetections.map((d, i) => ({
+                        ...d,
+                        source: 'counterfeit_model',
+                        display_name: d.feature_name || d.class_name || `Security Feature ${i + 1}`,
+                        bbox: normalizeBbox(d.bbox),
+                        confidence: d.confidence,
+                        color_class: `counterfeit-feature-${i % 6}`
+                      }))
+                    );
+                  }
+                  
+                  // NEW: If unified detection but no separate arrays, try flat detections
+                  if (isUnified && allDetections.length === 0 && flatDetections.length > 0) {
+                    console.log('🔧 Using flat detections array');
+                    allDetections = flatDetections
+                      .filter(d => d.class_name !== 'notbroken') // EXCLUDE good condition boxes
+                      .map((d, i) => {
+                        // Determine type from class_name
+                        const isBroken = ['broken', 'torn', 'damaged'].includes(d.class_name);
+                        
+                        return {
+                          ...d,
+                          source: isBroken ? 'broken_currency_model' : 'counterfeit_model',
+                          display_name: d.class_name === 'broken' ? '💔 Broken' :
+                                       d.class_name === 'torn' ? '🪓 Torn' :
+                                       d.class_name === 'damaged' ? '⚠️ Damaged' :
+                                       d.class_name || `Feature ${i + 1}`,
+                          bbox: normalizeBbox(d.bbox),
+                          confidence: d.confidence,
+                          color_class: isBroken ? `broken-currency-${i % 3}` : `counterfeit-feature-${i % 6}`
+                        };
+                      });
+                  }
+                  
+                  // Fallback to combined detections if unified not available
+                  if (!isUnified && combinedDetections) {
                     // Add peso features
                     allDetections = allDetections.concat(
                       (combinedDetections.peso_features || []).map((d, i) => ({
@@ -347,11 +489,22 @@ const ResultsPage = () => {
                     }));
                   }
                   
+                  console.log('📦 TOTAL allDetections before filter:', allDetections.length);
+                  if (allDetections.length > 0) {
+                    console.log('📦 First detection sample:', {
+                      class: allDetections[0].class_name,
+                      bbox: allDetections[0].bbox,
+                      confidence: allDetections[0].confidence
+                    });
+                  }
+                  
                   // Filter out detections without valid bounding boxes and sort by confidence
                   const validDetections = allDetections
                     .filter(d => d.bbox && d.bbox.length >= 4)
                     .sort((a, b) => (b.confidence || 0) - (a.confidence || 0)) // Sort by confidence (highest first)
                     .slice(0, 8); // Limit to top 8 detections to avoid clutter
+                  
+                  console.log(`✅ Valid detections with bboxes: ${validDetections.length}`);
                   
                   return validDetections.length > 0 ? (
                     validDetections.map((detection, index) => {
@@ -363,6 +516,16 @@ const ResultsPage = () => {
                       const top = bbox[1] * 100;
                       const width = (bbox[2] - bbox[0]) * 100;
                       const height = (bbox[3] - bbox[1]) * 100;
+                      
+                      // Debug log for first bbox
+                      if (index === 0) {
+                        console.log(`🎨 RENDERING BBOX ${index}:`, {
+                          class: detection.display_name,
+                          bbox_raw: bbox,
+                          position: { left: `${left}%`, top: `${top}%`, width: `${width}%`, height: `${height}%` },
+                          color_class: detection.color_class
+                        });
+                      }
                       
                       return (
                         <div 
@@ -442,7 +605,43 @@ const ResultsPage = () => {
                   const pesoDetections = pesoScan?.result?.detections || [];
                   const yoloDetections = pesoDetections;
                   
-                  if (combinedDetections) {
+                  // Check for unified detection results
+                  const brokenDetections = unifiedDetection?.broken_detection?.detections || [];
+                  const counterfeitDetections = unifiedDetection?.counterfeit_detection?.detections || [];
+                  
+                  if (isUnified && (brokenDetections.length > 0 || counterfeitDetections.length > 0)) {
+                    const totalFeatures = brokenDetections.length + counterfeitDetections.length;
+                    
+                    return (
+                      <>
+                        <p className="features-count">
+                          <strong>{totalFeatures} features detected</strong> by unified detection system
+                        </p>
+                        <div className="feature-tags">
+                          {brokenDetections.slice(0, 4).map((detection, index) => (
+                            <span key={`broken-${index}`} className={`feature-tag broken-currency-${index % 3}`}>
+                              {detection.class_name === 'broken' ? '💔 Broken' : 
+                               detection.class_name === 'torn' ? '🪓 Torn' : 
+                               detection.class_name === 'damaged' ? '⚠️ Damaged' : 
+                               detection.class_name === 'notbroken' ? '✅ Good' : detection.class_name}
+                            </span>
+                          ))}
+                          {counterfeitDetections.slice(0, 4).map((detection, index) => (
+                            <span key={`counterfeit-${index}`} className={`feature-tag counterfeit-feature-${index % 6}`}>
+                              {detection.feature_name || detection.class_name || 'Security'}
+                            </span>
+                          ))}
+                          {totalFeatures > 8 && (
+                            <span className="feature-tag more">+{totalFeatures - 8} more</span>
+                          )}
+                        </div>
+                        <div className="model-accuracy">
+                          <span className="accuracy-badge">Counterfeit: 94% mAP50</span>
+                          <span className="accuracy-badge">Broken Currency: 99.5% mAP50</span>
+                        </div>
+                      </>
+                    );
+                  } else if (combinedDetections) {
                     const pesoFeatures = combinedDetections.peso_features || [];
                     const securityFeatures = combinedDetections.security_features || [];
                     const totalFeatures = pesoFeatures.length + securityFeatures.length;
@@ -794,6 +993,99 @@ const ResultsPage = () => {
               )}
             </div>
           )}
+
+          {/* Hybrid CNN Analysis Section */}
+          {result.result?.hybrid_detection && (
+            <div className="hybrid-cnn-section">
+              <h3>🧠 Hybrid AI Analysis (CNN + YOLO)</h3>
+              
+              <div className="hybrid-summary">
+                <div className="ai-models-overview">
+                  <div className="model-card yolo-model">
+                    <div className="model-header">
+                      <span className="model-icon">👁️</span>
+                      <span className="model-name">YOLO Detection</span>
+                    </div>
+                    <div className="model-result">
+                      <span className="model-denomination">
+                        ₱{result.result.hybrid_detection.yolo_prediction.denomination || 'N/A'}
+                      </span>
+                      <span className="model-confidence">
+                        {Math.round((result.result.hybrid_detection.yolo_prediction.confidence || 0) * 100)}%
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="model-card cnn-model">
+                    <div className="model-header">
+                      <span className="model-icon">🧠</span>
+                      <span className="model-name">CNN Classification</span>
+                      <span className="model-architecture">ResNet50 + MobileNetV2</span>
+                    </div>
+                    <div className="model-result">
+                      <span className="model-denomination">
+                        ₱{result.result.hybrid_detection.cnn_prediction.denomination || 'N/A'}
+                      </span>
+                      <span className="model-confidence">
+                        {Math.round((result.result.hybrid_detection.cnn_prediction.confidence || 0) * 100)}%
+                      </span>
+                      <span className={`cnn-status ${result.result.hybrid_detection.cnn_prediction.available ? 'available' : 'unavailable'}`}>
+                        {result.result.hybrid_detection.cnn_prediction.available ? '✅ Active' : '❌ Unavailable'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="ensemble-result">
+                  <h4>🔀 Ensemble Prediction</h4>
+                  <div className="ensemble-details">
+                    <div className="ensemble-method">
+                      <span className="method-label">Method:</span>
+                      <span className="method-value">
+                        {(() => {
+                          const method = result.result.hybrid_detection.ensemble_method;
+                          switch (method) {
+                            case 'agreement': return '✅ Models Agree';
+                            case 'cnn_priority': return '🥇 CNN Priority (Higher Confidence)';
+                            case 'yolo_priority': return '🥈 YOLO Priority (Higher Confidence)';
+                            case 'cnn_only': return '🧠 CNN Only';
+                            case 'yolo_only': return '👁️ YOLO Only';
+                            default: return method || 'Unknown';
+                          }
+                        })()}
+                      </span>
+                    </div>
+                    <div className="final-prediction">
+                      <span className="final-denomination">₱{result.result.hybrid_detection.final_denomination}</span>
+                      <span className="final-confidence">{Math.round(result.result.hybrid_detection.final_confidence)}%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hybrid-advantages">
+                  <h4>🚀 Hybrid AI Advantages</h4>
+                  <div className="advantages-grid">
+                    <div className="advantage-item">
+                      <span className="advantage-icon">🎯</span>
+                      <span className="advantage-text">Enhanced Accuracy through Ensemble Learning</span>
+                    </div>
+                    <div className="advantage-item">
+                      <span className="advantage-icon">🔍</span>
+                      <span className="advantage-text">YOLO: Real-time Object Detection</span>
+                    </div>
+                    <div className="advantage-item">
+                      <span className="advantage-icon">🧠</span>
+                      <span className="advantage-text">CNN: Deep Feature Analysis (29.2M parameters)</span>
+                    </div>
+                    <div className="advantage-item">
+                      <span className="advantage-icon">⚡</span>
+                      <span className="advantage-text">Transfer Learning from ImageNet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="results-actions">
@@ -802,7 +1094,7 @@ const ResultsPage = () => {
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" fill="none"/>
               <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" fill="none"/>
             </svg>
-            Scan Another Bill
+            Scan Another Banknote
           </button>
           
           <button onClick={handleSaveToHistory} className="btn btn-secondary">
@@ -820,7 +1112,7 @@ const ResultsPage = () => {
               This system is designed for educational and research purposes. 
               While our AI model strives for high accuracy, it should not be used as the sole method 
               for currency authentication in critical financial decisions. 
-              Always verify suspicious bills through official banking channels and trained professionals.
+              Always verify suspicious banknotes through official banking channels and trained professionals.
             </p>
           </div>
         </div>

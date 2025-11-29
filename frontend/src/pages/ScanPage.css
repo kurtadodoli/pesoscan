@@ -2,8 +2,7 @@
 .scan-page {
   min-height: calc(100vh - 100px);
   padding: 2rem 0;
-  background: var(--bg-primary);
-  transition: background-color var(--transition-normal);
+  background: #ffffff;
 }
 
 .container {
@@ -17,21 +16,53 @@
   text-align: center;
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .scan-header h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1a1a1a;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
 }
 
 .scan-header p {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #6b7280;
   font-weight: 500;
+}
+
+/* Comprehensive Info Section */
+.comprehensive-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 8px;
+  border: 1px solid #0ea5e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-badge {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* Mode Selector - Minimal Tabs */
@@ -40,13 +71,12 @@
   justify-content: center;
   gap: 0;
   margin-bottom: 3rem;
-  background: var(--bg-secondary);
+  background: #f9fafb;
   border-radius: 12px;
   padding: 0.5rem;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid var(--border-color);
 }
 
 .mode-btn {
@@ -55,9 +85,9 @@
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 8px;
-  color: var(--text-secondary);
+  color: #6b7280;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -65,14 +95,15 @@
 }
 
 .mode-btn:hover {
-  color: var(--text-primary);
-  background: var(--hover-bg);
+  color: #374151;
+  border-color: #e5e7eb;
 }
 
 .mode-btn.active {
-  background: var(--card-bg);
-  color: var(--primary-blue);
-  box-shadow: 0 1px 3px var(--shadow-color);
+  background: transparent;
+  color: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
 }
 
 .mode-btn svg {
@@ -95,10 +126,10 @@
 
 .scan-type-option {
   cursor: pointer;
-  border: 2px solid var(--border-color);
+  border: 2px solid #e5e7eb;
   border-radius: 12px;
   padding: 1.5rem;
-  background: var(--card-bg);
+  background: white;
   transition: all 0.2s ease;
   position: relative;
 }
@@ -225,10 +256,45 @@
   pointer-events: none;
 }
 
+.camera-flip-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.camera-flip-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.camera-flip-btn:active {
+  transform: scale(0.95);
+}
+
+.camera-flip-btn svg {
+  width: 24px;
+  height: 24px;
+  color: #1a1a1a;
+}
+
 .viewfinder {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 420px;
+  height: 280px;
   border: 2px dashed rgba(255, 255, 255, 0.7);
   border-radius: 8px;
 }
@@ -444,8 +510,22 @@
 }
 
 .btn-large {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-large:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-large svg {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
 }
 
 /* Spinner */
