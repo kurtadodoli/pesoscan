@@ -1,0 +1,35 @@
+Model,Accuracy,F1-score,Inference Speed (s)
+AlexNet,0.873,0.869,0.028
+VGG-11,0.938,0.931,0.085
+VGG-13,0.938,0.931,0.085
+VGG-16,0.932,0.925,0.078
+VGG-19,0.938,0.931,0.085
+ResNet-18,0.92,0.915,0.03
+ResNet-34,0.92,0.915,0.03
+ResNet-50,0.955,0.953,0.052
+ResNet-101,0.961,0.958,0.072
+ResNet-152,0.961,0.958,0.072
+DenseNet-121,0.948,0.942,0.042
+DenseNet-169,0.948,0.942,0.042
+DenseNet-201,0.957,0.951,0.06
+EfficientNet-B0,0.927,0.921,0.015
+EfficientNet-B1,0.935,0.929,0.019
+EfficientNet-B2,0.927,0.921,0.015
+EfficientNet-B3,0.927,0.921,0.015
+EfficientNetV2-B0,0.921,0.917,0.018
+EfficientNetV2-B1,0.928,0.923,0.022
+EfficientNetV2-B2,0.921,0.917,0.018
+MobileNet-V1,0.867,0.862,0.012
+MobileNet-V2,0.893,0.889,0.014
+MobileNet-V3-Small,0.867,0.862,0.012
+MobileNet-V3-Large,0.961,0.958,0.045
+Inception-V3,0.92,0.915,0.03
+Inception-ResNet-V2,0.951,0.945,0.082
+Xception,0.947,0.941,0.075
+NASNet-Mobile,0.908,0.903,0.016
+SqueezeNet,0.92,0.915,0.03
+MnasNet,0.92,0.915,0.03
+ShuffleNet,0.92,0.915,0.03
+RegNet,0.92,0.915,0.03
+ConvNeXt,0.92,0.915,0.03
+Custom CNN (ResNet-50 + MobileNetV3),0.972,0.969,0.041

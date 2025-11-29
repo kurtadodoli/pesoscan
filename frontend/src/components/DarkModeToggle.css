@@ -1,0 +1,47 @@
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: var(--spacing-sm);
+}
+
+.dark-mode-toggle:hover {
+  color: var(--primary-blue);
+  background: rgba(30, 58, 138, 0.05);
+}
+
+.dark-mode-toggle:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.theme-icon {
+  transition: transform var(--transition-normal);
+}
+
+.dark-mode-toggle:hover .theme-icon {
+  transform: scale(1.1);
+}
+
+/* Dark mode styles */
+.dark-mode .dark-mode-toggle {
+  color: var(--accent-white);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  color: var(--primary-teal);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dark-mode-toggle:focus {
+  outline-color: var(--primary-teal);
+}

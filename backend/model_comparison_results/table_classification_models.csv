@@ -1,0 +1,17 @@
+Model,Architecture Type,Validation Accuracy (%),Top-5 Accuracy (%),Inference Time (ms),Training Time (min),Model Size (MB),Parameters (M),Transfer Learning,Mobile-Optimized,Real-time,Reference
+"VGG-16 (Alejo et al., 2023)","Deep CNN, 16 layers",89.1,94.1,42,145,528,138.4,Yes,No,No,Alejo et al. (2023)
+"AlexNet (Alejo et al., 2023)","CNN, 8 layers",87.3,92.8,28,110,233,61.0,Yes,No,Yes,Alejo et al. (2023)
+"ResNet-18 (Alejo et al., 2023)","Residual CNN, 18 layers",92.4,95.4,24,95,45,11.7,Yes,No,Yes,Alejo et al. (2023)
+"ResNet-50 (Kanawade et al., 2025)","Residual CNN, 50 layers",91.5,95.8,32,120,98,25.6,No,No,Yes,Kanawade et al. (2025)
+"DenseNet-201 (Kanawade et al., 2025)","Dense connections, 201 layers",89.2,94.9,45,165,112,20.0,No,No,No,Kanawade et al. (2025)
+MobileNet-V1 (Baseline),Depthwise separable conv,86.7,93.2,12,65,16,4.2,No,Yes,Yes,Baseline
+MobileNet-V2 (Baseline),Inverted residuals,89.3,94.5,14,70,14,3.5,No,Yes,Yes,Baseline
+MobileNet-V3 (Baseline),"SE blocks, h-swish",90.8,95.2,11,68,21,5.4,No,Yes,Yes,Baseline
+EfficientNet-V2-B0 (Baseline),"Efficient scaling, B0",92.1,96.3,18,95,28,7.1,No,No,Yes,Baseline
+EfficientNet-V2-B1 (Baseline),"Efficient scaling, B1",92.8,96.7,22,105,32,8.1,No,No,Yes,Baseline
+"Custom Deep CNN (Patel et al., 2023)",Custom mobile-optimized,85.6,91.2,55,80,18,4.8,No,Yes,Yes,Patel et al. (2023)
+"Deep Learning CNN (Bhavani et al., 2024)",Deep learning framework,88.7,93.8,38,125,72,18.5,No,No,Yes,Bhavani et al. (2024)
+"CNN + Image Proc (Noor & Ruhaiyem, 2025)",Hybrid CNN + preprocessing,92.0,95.1,65,90,58,14.2,No,No,Yes,Noor & Ruhaiyem (2025)
+MobileNet-V3 Branch (PesoScan),MobileNet-V3 + Transfer Learning,90.8,95.2,11,68,21,5.4,Yes,Yes,Yes,Our Implementation
+ResNet-50 Branch (PesoScan),ResNet-50 + Transfer Learning,91.5,95.8,32,120,98,25.6,Yes,No,Yes,Our Implementation
+Hybrid CNN (PesoScan),Dual-branch ensemble,96.8,98.9,25,85,51,12.8,Yes,Partial,Yes,Our Implementation

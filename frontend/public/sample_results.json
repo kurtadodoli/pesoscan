@@ -1,0 +1,97 @@
+{
+  "result": {
+    "id": "test_scan_001",
+    "result": {
+      "detections": [
+        {
+          "class_name": "20",
+          "feature_name": "20 Peso Bill",
+          "confidence": 0.793,
+          "bbox": [
+            0.15,
+            0.12,
+            0.45,
+            0.38
+          ]
+        },
+        {
+          "class_name": "1000",
+          "feature_name": "1000 Peso Bill",
+          "confidence": 0.772,
+          "bbox": [
+            0.5,
+            0.15,
+            0.85,
+            0.45
+          ]
+        },
+        {
+          "class_name": "50",
+          "feature_name": "50 Peso Bill",
+          "confidence": 0.61,
+          "bbox": [
+            0.25,
+            0.55,
+            0.75,
+            0.85
+          ]
+        }
+      ],
+      "authentic": true,
+      "confidence": 0.85,
+      "denomination": "Mixed Denominations",
+      "features": {
+        "security_thread": true,
+        "watermark": true,
+        "microprinting": false,
+        "color_changing_ink": true,
+        "uv_features": false,
+        "raised_printing": true
+      }
+    },
+    "peso_scan": {
+      "result": {
+        "detections": [
+          {
+            "class_name": "20",
+            "feature_name": "20 Peso Bill",
+            "confidence": 0.793,
+            "bbox": [
+              0.15,
+              0.12,
+              0.45,
+              0.38
+            ]
+          },
+          {
+            "class_name": "1000",
+            "feature_name": "1000 Peso Bill",
+            "confidence": 0.772,
+            "bbox": [
+              0.5,
+              0.15,
+              0.85,
+              0.45
+            ]
+          },
+          {
+            "class_name": "50",
+            "feature_name": "50 Peso Bill",
+            "confidence": 0.61,
+            "bbox": [
+              0.25,
+              0.55,
+              0.75,
+              0.85
+            ]
+          }
+        ]
+      }
+    },
+    "processing_time": 2.14,
+    "timestamp": "2025-10-04T03:30:00Z"
+  },
+  "imageUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=",
+  "mode": "file",
+  "scanType": "comprehensive"
+}

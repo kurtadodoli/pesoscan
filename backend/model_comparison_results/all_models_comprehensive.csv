@@ -1,0 +1,24 @@
+Model,Researcher,Accuracy (%),Inference (ms),Size (MB),Real-time,Advantage,Disadvantage
+patil_traditional_ml,Patil et al. (2025),78.5,450.0,25.0,No,"Simple implementation, interpretable","Poor real-time capability, low accuracy on damaged notes"
+kanawade_resnet,Kanawade et al. (2025),91.5,32.0,98.0,Yes,"High accuracy, good feature extraction","Large model size, high computational cost"
+kanawade_densenet201,Kanawade et al. (2025),89.2,45.0,112.0,No,"Feature reuse, parameter efficiency","Very large model, slow inference"
+kanawade_yolo,Kanawade et al. (2025),86.3,15.0,45.0,Yes,"Fast inference, real-time capable",Lower accuracy than CNNs
+ballado_canny,Ballado et al. (2022),82.4,120.0,5.0,No,"Lightweight, simple implementation","Not applicable to polymer notes, lighting dependent"
+patel_custom_cnn,Patel et al. (2023),85.6,55.0,18.0,Yes,"Mobile-friendly, portable deployment","Limited denominations, below SOTA accuracy"
+bhavani_dl_cnn,Bhavani et al. (2024),88.7,38.0,72.0,Yes,"High accuracy, automated pipeline","Limited interpretability, black-box model"
+alejo_alexnet,Alejo et al. (2023),87.3,28.0,233.0,Yes,"Proven architecture, transfer learning benefits","Very large model, limited to 2 denominations"
+alejo_vgg16,Alejo et al. (2023),89.1,42.0,528.0,No,"Good feature extraction, widely tested","Extremely large model (528MB), slow"
+alejo_resnet18,Alejo et al. (2023),92.4,24.0,45.0,Yes,"Best among Alejo models, good balance",Limited to 2 denominations only
+apoloni_image_processing,Apoloni et al. (2022),84.2,180.0,12.0,No,"Low-cost, hardware-comparable accuracy","Lighting dependent, slow processing"
+samaniego_yolov8_coins,Samaniego et al. (2024),96.5,8.0,6.0,Yes,"Very high accuracy, real-time, lightweight","Coins only, not applicable to paper currency"
+noor_hybrid,Noor & Ruhaiyem (2025),92.0,65.0,58.0,Yes,Combines traditional + deep learning,Needs large dataset for generalization
+baseline_yolov3,Baseline Comparison,87.3,12.0,62.0,Yes,"Proven architecture, good speed","Outdated, lower accuracy than newer versions"
+baseline_yolov5,Baseline Comparison,89.1,8.0,3.9,Yes,"Very lightweight, fast",Lower accuracy than YOLOv8
+baseline_yolov11,Baseline Comparison,91.8,7.0,5.2,Yes,"Cutting edge, very fast",Still lower accuracy than our YOLOv8 implementation
+baseline_efficientnet_v2_b1,Baseline Comparison,92.8,18.0,28.0,Yes,"Efficient, good accuracy",Not specialized for currency
+baseline_mobilenet_v3,Baseline Comparison,90.8,11.0,21.0,Yes,"Lightweight, mobile-friendly",Lower accuracy than larger models
+pesoscan_yolov8,PesoScan Team (2025),94.0,6.2,6.2,Yes,"BEST YOLO variant for currency, fastest, highest accuracy",None - optimal for our use case
+pesoscan_mobilenet_branch,PesoScan Team (2025),90.8,11.0,21.0,Yes,"Fast, efficient, mobile-optimized",Lower accuracy when used alone
+pesoscan_resnet_branch,PesoScan Team (2025),91.5,32.0,98.0,Yes,"High accuracy, robust features",Slower than MobileNet when used alone
+pesoscan_hybrid_cnn,PesoScan Team (2025),96.8,25.0,51.0,Yes,"HIGHEST ACCURACY, combines speed + depth, ensemble benefits",None - best of both worlds
+pesoscan_complete_system,PesoScan Team (2025),96.8,180.0,64.0,Yes,"BEST OVERALL, comprehensive detection, production-ready",None - superior to all baselines

@@ -1,0 +1,11 @@
+Object Detection Algorithm,mAP@50,F1-score,Inference Speed,Composite Score
+YOLOv8n (PesoScan),9.88,9.9,9.33,9.7
+YOLOv8s,9.83,9.85,8.46,9.38
+YOLOv7,9.85,8.92,8.26,9.01
+YOLOv5m,9.73,9.78,6.23,8.58
+YOLOv11s,9.69,9.81,7.5,8.67
+YOLOv11n,9.62,9.73,8.0,9.12
+YOLOv5s,9.61,9.65,6.93,8.73
+YOLOv5n,9.55,9.67,7.17,8.8
+RetinaNet,9.51,9.62,4.74,7.96
+Faster R-CNN,9.44,9.53,1.09,6.69

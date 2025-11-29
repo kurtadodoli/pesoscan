@@ -1,0 +1,35 @@
+
+\begin{table}[h]
+\centering
+\caption{Comprehensive Model Comparison - Object Detection}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{mAP50 (\%)} & \textbf{mAP50-95 (\%)} & \textbf{Train Time (min)} & \textbf{Inference (ms)} & \textbf{Size (MB)} \\
+\hline
+YOLOv3 & 87.3 & 45.2 & 180 & 29.0 & 246 \\
+YOLOv5n & 89.1 & 48.7 & 95 & 8.5 & 8 \\
+YOLOv8n & 94.0 & 58.8 & 85 & 6.2 & 13 \\
+YOLOv11n & 91.8 & 52.3 & 92 & 7.1 & 10 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Comprehensive Model Comparison - Classification}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Val Acc (\%)} & \textbf{Top-5 (\%)} & \textbf{Train Time (min)} & \textbf{Inference (ms)} & \textbf{Size (MB)} \\
+\hline
+VGG16 & 88.2 & 94.1 & 145 & 45.0 & 528 \\
+ResNet-50 (Base) & 91.5 & 95.8 & 120 & 32.0 & 98 \\
+MobileNet-V1 & 86.7 & 93.2 & 65 & 12.0 & 16 \\
+MobileNet-V2 & 89.3 & 94.5 & 70 & 14.0 & 14 \\
+MobileNet-V3 (Base) & 90.8 & 95.2 & 68 & 11.0 & 21 \\
+EfficientNet-V2-B0 & 92.1 & 96.3 & 95 & 18.0 & 28 \\
+EfficientNet-V2-B1 & 92.8 & 96.7 & 105 & 22.0 & 32 \\
+DenseNet-201 & 91.2 & 95.6 & 165 & 58.0 & 80 \\
+Custom Hybrid CNN (MobileNetV3+ResNet50) & 96.8 & 98.9 & 85 & 25.0 & 51 \\
+\hline
+\end{tabular}
+\end{table}

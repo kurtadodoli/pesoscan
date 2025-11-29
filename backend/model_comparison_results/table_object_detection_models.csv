@@ -1,0 +1,6 @@
+Model,Architecture,mAP50 (%),mAP50-95 (%),Inference Time (ms),FPS,Model Size (MB),Parameters (M),Training Time (min),Real-time Capable,GPU Required,Reference
+YOLOv3,"Darknet-53 backbone, 106 layers",87.3,45.2,29.0,34,246.0,61.5,180,No,Yes,Baseline Comparison
+YOLOv5n,"CSPNet backbone, lightweight",89.1,48.7,8.5,118,7.5,1.9,95,Yes,Optional,Baseline Comparison
+YOLOv8n (PesoScan),"CSPDarknet backbone, anchor-free",94.0,58.8,6.2,161,12.8,3.2,85,Yes,Optional,Our Implementation
+YOLOv11n,"Enhanced CSPNet, latest variant",91.8,52.3,7.1,141,10.4,2.6,92,Yes,Optional,Baseline Comparison
+"YOLO Generic (Kanawade et al., 2025)",Generic YOLO implementation,86.3,42.1,15.0,67,45.0,11.3,120,Yes,Yes,Kanawade et al. (2025)

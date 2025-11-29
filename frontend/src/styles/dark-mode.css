@@ -1,0 +1,1451 @@
+/* ===================================== */
+/* SYNCHRONIZED DARK MODE TRANSITIONS   */
+/* ===================================== */
+
+/* 
+ * NOTE: Transitions are DISABLED during theme switch via .no-transitions class
+ * This section is only for hover effects after theme has switched
+ */
+
+/* Dark Mode Global Styles */
+.dark-mode {
+  --background-primary: #000000;
+  --background-secondary: #111111;
+  --background-tertiary: #1a1a1a;
+  --background-card: #222222;
+  --background-elevated: #333333;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #cccccc;
+  --text-light: #ffffff;
+  --text-dark: #ffffff;
+  
+  --border-color: #444444;
+  --border-light: #555555;
+  
+  --accent-white: #000000;
+  --accent-gray: #333333;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(255, 255, 255, 0.1);
+}
+
+/* Force dark mode on all elements EXCEPT bounding boxes and main status elements */
+html.dark-mode,
+body.dark-mode,
+.dark-mode,
+.dark-mode *:not(.btn):not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.enhanced-bbox):not(.enhanced-bbox *):not(.peso-feature-0):not(.peso-feature-1):not(.peso-feature-2):not(.peso-feature-3):not(.security-feature-0):not(.security-feature-1):not(.security-feature-2):not(.security-feature-3):not(.security-feature-4):not(.security-feature-5):not(.feature-label-enhanced):not(.confidence-badge-enhanced):not(.bbox-border):not(.main-status):not(.main-status *):not(.main-status-icon):not(.main-status-content):not(.main-status-text):not(.main-confidence):not(.main-denomination):not(.main-status-indicator):not(.main-status-indicator *) {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Root elements */
+html.dark-mode {
+  background-color: var(--background-primary) !important;
+}
+
+body.dark-mode {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .App {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .main-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Override ALL hardcoded white backgrounds */
+.dark-mode .hero,
+.dark-mode .hero-content,
+.dark-mode .page-content,
+.dark-mode .scan-section,
+.dark-mode .results-section,
+.dark-mode .home-hero,
+.dark-mode .home-page,
+.dark-mode .scan-page,
+.dark-mode .results-page,
+.dark-mode .about-page,
+.dark-mode .history-page {
+  background: var(--background-primary) !important;
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Override specific elements that should have different backgrounds */
+.dark-mode .card,
+.dark-mode .hero-card,
+.dark-mode .feature-card,
+.dark-mode .scan-container,
+.dark-mode .results-container,
+.dark-mode .upload-area,
+.dark-mode .camera-section,
+.dark-mode .results-card,
+.dark-mode .info-card,
+.dark-mode .status-card,
+.dark-mode .detection-results,
+.dark-mode .analysis-section,
+.dark-mode .feature-analysis {
+  background-color: var(--background-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Upload icon - light color for dark mode */
+.dark-mode .upload-placeholder svg {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark-mode .upload-area:hover .upload-placeholder svg {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .navbar {
+  background-color: var(--background-secondary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode button:not(.btn) {
+  background-color: var(--background-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Ensure text elements are white */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span:not(.corner),
+.dark-mode label {
+  color: var(--text-primary) !important;
+}
+
+/* Override any remaining white backgrounds */
+.dark-mode .container,
+.dark-mode .container-wide,
+.dark-mode .page,
+.dark-mode .section {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Force override ALL possible white background combinations */
+.dark-mode [style*="background: white"],
+.dark-mode [style*="background: #ffffff"],
+.dark-mode [style*="background: #fff"],
+.dark-mode [style*="background-color: white"],
+.dark-mode [style*="background-color: #ffffff"],
+.dark-mode [style*="background-color: #fff"] {
+  background: var(--background-primary) !important;
+  background-color: var(--background-primary) !important;
+}
+
+/* Body and HTML dark mode */
+html.dark-mode,
+body.dark-mode,
+.dark-mode {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Remove the universal selector - it breaks video elements */
+/* Apply dark mode to text elements only */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span:not(.corner),
+.dark-mode label {
+  color: var(--text-primary) !important;
+}
+
+/* Override specific elements that should have different backgrounds */
+.dark-mode .card,
+.dark-mode .hero-card,
+.dark-mode .feature-card,
+.dark-mode .scan-container {
+  background-color: var(--background-card) !important;
+}
+
+.dark-mode .navbar {
+  background-color: var(--background-secondary) !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode button {
+  color: var(--text-primary) !important;
+}
+
+/* Navbar dark mode */
+.dark-mode .navbar {
+  background: var(--background-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-mode .navbar-brand {
+  color: var(--text-primary);
+}
+
+.dark-mode .navbar-brand:hover {
+  color: var(--primary-teal);
+}
+
+.dark-mode .nav-link {
+  color: var(--text-secondary);
+}
+
+.dark-mode .nav-link:hover {
+  color: var(--primary-teal);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav-link.active {
+  color: var(--primary-teal);
+}
+
+.dark-mode .nav-link.active::after {
+  background: var(--primary-teal);
+}
+
+.dark-mode .dropdown-toggle {
+  color: var(--text-secondary);
+}
+
+.dark-mode .dropdown-toggle:hover {
+  color: var(--primary-teal);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dropdown-menu {
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
+}
+
+.dark-mode .dropdown-item {
+  color: var(--text-primary);
+}
+
+/* Tool icons - white in dark mode */
+.dark-mode .dropdown-item .tool-icon {
+  color: #ffffff !important;
+}
+
+.dark-mode .dropdown-item:hover .tool-icon {
+  color: var(--primary-teal) !important;
+}
+
+.dark-mode .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-teal);
+}
+
+.dark-mode .dropdown-item .tool-description {
+  color: var(--text-muted);
+}
+
+.dark-mode .dropdown-item:hover .tool-description {
+  color: var(--primary-teal);
+}
+
+/* Cards and containers */
+.dark-mode .card,
+.dark-mode .hero-card,
+.dark-mode .feature-card,
+.dark-mode .scan-container,
+.dark-mode .results-container {
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.dark-mode .btn-primary {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: white;
+}
+
+.dark-mode .btn-primary:hover {
+  background: var(--primary-teal);
+  border-color: var(--primary-teal);
+}
+
+/* Button SVG icons - ensure visibility */
+.dark-mode .btn svg,
+.dark-mode .btn-primary svg,
+.dark-mode .btn-outline svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+/* Large buttons - enhanced visibility */
+.dark-mode .btn-large {
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark-mode .btn-large:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(20, 184, 166, 0.35) !important;
+}
+
+.dark-mode .btn-secondary {
+  background: var(--background-elevated);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-mode .btn-secondary:hover {
+  background: var(--background-tertiary);
+  border-color: var(--border-light);
+}
+
+/* Forms */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background: var(--background-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: var(--primary-teal);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Hero section */
+.dark-mode .hero {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.dark-mode .hero-title {
+  color: var(--text-primary);
+}
+
+.dark-mode .hero-subtitle {
+  color: var(--text-secondary);
+}
+
+/* Features section */
+.dark-mode .features {
+  background: var(--background-secondary);
+}
+
+.dark-mode .section-title {
+  color: var(--text-primary);
+}
+
+.dark-mode .section-subtitle {
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.dark-mode .footer {
+  background: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.dark-mode .footer-text {
+  color: var(--text-muted);
+}
+
+/* Scan page specific */
+.dark-mode .mode-toggle {
+  background: var(--background-tertiary);
+  border-color: var(--border-color);
+}
+
+.dark-mode .mode-toggle.active {
+  background: var(--primary-blue);
+  color: white;
+}
+
+/* Mode buttons (Camera/Upload tabs) */
+.dark-mode .mode-btn {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.dark-mode .mode-btn:hover {
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .mode-btn.active {
+  background: transparent !important;
+  color: var(--primary-teal) !important;
+  border-color: var(--primary-teal) !important;
+  box-shadow: 0 0 0 1px var(--primary-teal) !important;
+}
+
+.dark-mode .mode-btn svg {
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+.dark-mode .image-preview {
+  border-color: var(--border-color);
+  background: var(--background-tertiary);
+}
+
+/* Copy the exact light mode approach - just update border color */
+.dark-mode .webcam-container {
+  background: #000;
+  border-color: var(--border-color);
+}
+
+/* Don't touch video or webcam elements - let them work exactly like light mode */
+.dark-mode .webcam {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Camera overlay - ensure it's always visible */
+.dark-mode .camera-overlay {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* Camera viewfinder and corners - enhanced visibility in dark mode */
+.dark-mode .viewfinder {
+  border-color: rgba(20, 184, 166, 0.8) !important;
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.3) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.dark-mode .corner {
+  border-color: #14b8a6 !important;
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.5) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.dark-mode .camera-instruction {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(20, 184, 166, 0.3) !important;
+}
+
+.dark-mode .camera-flip-btn {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .camera-flip-btn:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark-mode .camera-flip-btn svg {
+  color: #ffffff !important;
+}
+
+/* Results page specific */
+.dark-mode .result-card {
+  background: var(--background-card);
+  border-color: var(--border-color);
+}
+
+.dark-mode .confidence-bar {
+  background: var(--background-tertiary);
+}
+
+.dark-mode .confidence-fill {
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-teal));
+}
+
+/* About page specific */
+.dark-mode .about-content {
+  background: var(--background-card);
+}
+
+.dark-mode .tech-stack-item {
+  background: var(--background-tertiary);
+  border-color: var(--border-color);
+}
+
+/* Team member cards */
+.dark-mode .team-member {
+  background: var(--background-card) !important;
+  border-top-color: var(--primary-blue) !important;
+}
+
+.dark-mode .team-member:hover {
+  background: var(--background-elevated) !important;
+}
+
+.dark-mode .member-icon {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal)) !important;
+}
+
+.dark-mode .member-icon svg {
+  color: #ffffff !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+}
+
+.dark-mode .team-member h4 {
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .member-role {
+  color: var(--primary-teal) !important;
+}
+
+.dark-mode .member-institution {
+  color: var(--text-secondary) !important;
+}
+
+/* History page specific */
+.dark-mode .history-item {
+  background: var(--background-card);
+  border-color: var(--border-color);
+}
+
+.dark-mode .history-item:hover {
+  background: var(--background-elevated);
+}
+
+/* Loading and error states */
+.dark-mode .loading-spinner {
+  border-color: var(--border-color);
+  border-top-color: var(--primary-teal);
+}
+
+.dark-mode .error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.dark-mode .success-message {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+
+/* Scrollbar dark mode */
+.dark-mode ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+  background: #000000; /* Black track */
+  border-radius: 4px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #555555; /* Gray thumb */
+  border-radius: 4px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #777777; /* Lighter gray on hover */
+}
+
+/* Firefox scrollbar styling for dark mode */
+.dark-mode * {
+  scrollbar-width: thin;
+  scrollbar-color: #555555 #000000; /* Gray thumb, black track */
+}
+
+/* ULTIMATE DARK MODE OVERRIDE - Force dark theme on everything EXCEPT bounding boxes and their children */
+.dark-mode,
+.dark-mode > *:not(.enhanced-bbox):not(.peso-feature-0):not(.peso-feature-1):not(.peso-feature-2):not(.peso-feature-3):not(.security-feature-0):not(.security-feature-1):not(.security-feature-2):not(.security-feature-3):not(.feature-box-0):not(.feature-box-1):not(.feature-box-2):not(.feature-box-3):not(.feature-box-4):not(.feature-box-5) {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Apply dark mode ONLY to elements that are NOT bounding boxes or their children */
+.dark-mode .container:not(.enhanced-bbox):not(.enhanced-bbox *),
+.dark-mode .card:not(.enhanced-bbox):not(.enhanced-bbox *),
+.dark-mode .page:not(.enhanced-bbox):not(.enhanced-bbox *),
+.dark-mode div:not(.enhanced-bbox):not(.enhanced-bbox *):not(.peso-feature-0):not(.peso-feature-0 *):not(.peso-feature-1):not(.peso-feature-1 *):not(.peso-feature-2):not(.peso-feature-2 *):not(.peso-feature-3):not(.peso-feature-3 *):not(.security-feature-0):not(.security-feature-0 *):not(.security-feature-1):not(.security-feature-1 *):not(.security-feature-2):not(.security-feature-2 *):not(.security-feature-3):not(.security-feature-3 *):not(.feature-box-0):not(.feature-box-0 *):not(.feature-box-1):not(.feature-box-1 *):not(.feature-box-2):not(.feature-box-2 *):not(.feature-box-3):not(.feature-box-3 *):not(.feature-box-4):not(.feature-box-4 *):not(.feature-box-5):not(.feature-box-5 *) {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Restore proper backgrounds for specific elements */
+.dark-mode .card,
+.dark-mode .hero-card,
+.dark-mode .feature-card,
+.dark-mode .scan-container,
+.dark-mode .results-container,
+.dark-mode .upload-area,
+.dark-mode .camera-section,
+.dark-mode .results-card,
+.dark-mode .info-card,
+.dark-mode .status-card,
+.dark-mode .detection-results,
+.dark-mode .analysis-section,
+.dark-mode .feature-analysis,
+.dark-mode .navbar,
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--background-card) !important;
+}
+
+/* Keep buttons with their designed colors */
+.dark-mode .btn,
+.dark-mode .btn-primary,
+.dark-mode .btn-secondary,
+.dark-mode .btn-outline {
+  background: unset !important;
+  color: unset !important;
+}
+
+/* Override any CSS-in-JS or inline styles */
+.dark-mode [style] {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Remove all text shadows and black borders in dark mode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span,
+.dark-mode label,
+.dark-mode .authentic-status,
+.dark-mode .counterfeit-status,
+.dark-mode .results-title,
+.dark-mode .analysis-title {
+  text-shadow: none !important;
+}
+
+/* Remove black borders and replace with appropriate dark borders */
+.dark-mode * {
+  border-color: var(--border-color) !important;
+}
+
+/* Override specific black/dark borders */
+.dark-mode [style*="border: 1px solid rgba(0, 0, 0"],
+.dark-mode [style*="border: 2px solid rgba(0, 0, 0"],
+.dark-mode [style*="border-bottom: 1px solid rgba(0, 0, 0"],
+.dark-mode [style*="border-top: 1px solid rgba(0, 0, 0"] {
+  border-color: var(--border-color) !important;
+}
+
+/* Remove unwanted shadows and outlines */
+.dark-mode .dropdown-menu,
+.dark-mode .card,
+.dark-mode .upload-area,
+.dark-mode .camera-section,
+.dark-mode .results-card {
+  box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* PRESERVE BOUNDING BOX STYLES - Keep same as light mode */
+.dark-mode .enhanced-bbox,
+.dark-mode .peso-feature-0,
+.dark-mode .peso-feature-1,
+.dark-mode .peso-feature-2,
+.dark-mode .peso-feature-3,
+.dark-mode .security-feature-0,
+.dark-mode .security-feature-1,
+.dark-mode .security-feature-2,
+.dark-mode .security-feature-3,
+.dark-mode .feature-box-0,
+.dark-mode .feature-box-1,
+.dark-mode .feature-box-2,
+.dark-mode .feature-box-3,
+.dark-mode .feature-box-4,
+.dark-mode .feature-box-5 {
+  border: 2px solid #3b82f6 !important;
+  border-radius: 4px !important;
+  background: rgba(59, 130, 246, 0.15) !important;
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  pointer-events: none !important;
+  min-height: 30px !important;
+  min-width: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure bounding boxes are not affected by universal dark mode overrides */
+.dark-mode .enhanced-bbox *,
+.dark-mode .peso-feature-0 *,
+.dark-mode .peso-feature-1 *,
+.dark-mode .peso-feature-2 *,
+.dark-mode .peso-feature-3 *,
+.dark-mode .security-feature-0 *,
+.dark-mode .security-feature-1 *,
+.dark-mode .security-feature-2 *,
+.dark-mode .security-feature-3 * {
+  background: transparent !important;
+}
+
+/* Preserve bounding box labels and confidence badges - keep original colors */
+.dark-mode .feature-label-enhanced {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .confidence-badge-enhanced {
+  background: transparent !important;
+  color: #10b981 !important;
+  border: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .feature-label-enhanced .feature-name {
+  color: white !important;
+}
+
+.dark-mode .feature-label-enhanced .model-source {
+  color: white !important;
+}
+
+/* Preserve AR overlay bounding boxes */
+.dark-mode .ar-bbox {
+  border: 2px solid #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.15) !important;
+}
+
+/* CRITICAL: Override any dark background on bounding boxes */
+.dark-mode .enhanced-bbox,
+.dark-mode .peso-feature-0,
+.dark-mode .peso-feature-1,
+.dark-mode .peso-feature-2,
+.dark-mode .peso-feature-3,
+.dark-mode .security-feature-0,
+.dark-mode .security-feature-1,
+.dark-mode .security-feature-2,
+.dark-mode .security-feature-3,
+.dark-mode .feature-box-0,
+.dark-mode .feature-box-1,
+.dark-mode .feature-box-2,
+.dark-mode .feature-box-3,
+.dark-mode .feature-box-4,
+.dark-mode .feature-box-5 {
+  background: rgba(59, 130, 246, 0.15) !important;
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+/* Make sure bounding box content areas don't get dark backgrounds */
+.dark-mode .enhanced-bbox > *,
+.dark-mode .peso-feature-0 > *,
+.dark-mode .peso-feature-1 > *,
+.dark-mode .peso-feature-2 > *,
+.dark-mode .peso-feature-3 > *,
+.dark-mode .security-feature-0 > *,
+.dark-mode .security-feature-1 > *,
+.dark-mode .security-feature-2 > *,
+.dark-mode .security-feature-3 > *,
+.dark-mode .feature-box-0 > *,
+.dark-mode .feature-box-1 > *,
+.dark-mode .feature-box-2 > *,
+.dark-mode .feature-box-3 > *,
+.dark-mode .feature-box-4 > *,
+.dark-mode .feature-box-5 > * {
+  background: transparent !important;
+  background-color: transparent !important;
+
+/* Preserve main status styling in dark mode - prevent black backgrounds */
+.dark-mode .main-status,
+.dark-mode .main-status-indicator,
+.dark-mode .main-status-icon,
+.dark-mode .main-status-content,
+.dark-mode .main-status-text,
+.dark-mode .main-confidence,
+.dark-mode .main-denomination {
+  background: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Ensure authentic status maintains its vibrant green gradient in dark mode */
+.dark-mode .main-status.authentic {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.25) !important;
+}
+
+.dark-mode .main-status.authentic .main-status-icon {
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+  color: white !important;
+  box-shadow: 0 2px 12px rgba(34, 197, 94, 0.4) !important;
+}
+
+.dark-mode .main-status.authentic .main-status-text {
+  color: #166534 !important;
+  text-shadow: 0 1px 2px rgba(34, 197, 94, 0.2) !important;
+}
+
+.dark-mode .main-status.authentic .main-confidence,
+.dark-mode .main-status.authentic .main-denomination {
+  color: #15803d !important;
+}
+
+/* Counterfeit status in dark mode */
+.dark-mode .main-status.counterfeit {
+  background: linear-gradient(135deg, #fee2e2, #fecaca) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.25) !important;
+}
+
+.dark-mode .main-status.counterfeit .main-status-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: white !important;
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.4) !important;
+}
+
+.dark-mode .main-status.counterfeit .main-status-text {
+  color: #b91c1c !important;
+  text-shadow: 0 1px 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.dark-mode .main-status.counterfeit .main-confidence,
+.dark-mode .main-status.counterfeit .main-denomination {
+  color: #dc2626 !important;
+}
+
+/* Suspicious status in dark mode */
+.dark-mode .main-status.suspicious {
+  background: linear-gradient(135deg, #fef3c7, #fed7aa) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25) !important;
+}
+
+.dark-mode .main-status.suspicious .main-status-icon {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: white !important;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.4) !important;
+}
+
+.dark-mode .main-status.suspicious .main-status-text {
+  color: #a16207 !important;
+  text-shadow: 0 1px 2px rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark-mode .main-status.suspicious .main-confidence,
+.dark-mode .main-status.suspicious .main-denomination {
+  color: #d97706 !important;
+}
+}
+
+/* FORCE COMPLETE TRANSPARENCY - Remove ALL backgrounds from ANY element inside bounding boxes */
+.dark-mode .enhanced-bbox *,
+.dark-mode .peso-feature-0 *,
+.dark-mode .peso-feature-1 *,
+.dark-mode .peso-feature-2 *,
+.dark-mode .peso-feature-3 *,
+.dark-mode .security-feature-0 *,
+.dark-mode .security-feature-1 *,
+.dark-mode .security-feature-2 *,
+.dark-mode .security-feature-3 *,
+.dark-mode .feature-box-0 *,
+.dark-mode .feature-box-1 *,
+.dark-mode .feature-box-2 *,
+.dark-mode .feature-box-3 *,
+.dark-mode .feature-box-4 *,
+.dark-mode .feature-box-5 *,
+.dark-mode [class*="security-feature"] *,
+.dark-mode [class*="peso-feature"] *,
+.dark-mode [class*="feature-box"] *,
+.dark-mode [class*="detection"] *,
+.dark-mode [id*="security"] *,
+.dark-mode [id*="feature"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Force transparent on pseudo elements too */
+.dark-mode .enhanced-bbox *::before,
+.dark-mode .enhanced-bbox *::after,
+.dark-mode .peso-feature-0 *::before,
+.dark-mode .peso-feature-0 *::after,
+.dark-mode .peso-feature-1 *::before,
+.dark-mode .peso-feature-1 *::after,
+.dark-mode .peso-feature-2 *::before,
+.dark-mode .peso-feature-2 *::after,
+.dark-mode .peso-feature-3 *::before,
+.dark-mode .peso-feature-3 *::after,
+.dark-mode .security-feature-0 *::before,
+.dark-mode .security-feature-0 *::after,
+.dark-mode .security-feature-1 *::before,
+.dark-mode .security-feature-1 *::after,
+.dark-mode .security-feature-2 *::before,
+.dark-mode .security-feature-2 *::after,
+.dark-mode .security-feature-3 *::before,
+.dark-mode .security-feature-3 *::after,
+.dark-mode .feature-box-0 *::before,
+.dark-mode .feature-box-0 *::after,
+.dark-mode .feature-box-1 *::before,
+.dark-mode .feature-box-1 *::after,
+.dark-mode .feature-box-2 *::before,
+.dark-mode .feature-box-2 *::after,
+.dark-mode .feature-box-3 *::before,
+.dark-mode .feature-box-3 *::after,
+.dark-mode .feature-box-4 *::before,
+.dark-mode .feature-box-4 *::after,
+.dark-mode .feature-box-5 *::before,
+.dark-mode .feature-box-5 *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* NUCLEAR OPTION: Force transparency on ANY black element inside bounding boxes */
+.dark-mode .enhanced-bbox [style*="black"],
+.dark-mode .enhanced-bbox [style*="#000"],
+.dark-mode .enhanced-bbox [style*="#000000"],
+.dark-mode .peso-feature-0 [style*="black"],
+.dark-mode .peso-feature-0 [style*="#000"],
+.dark-mode .peso-feature-0 [style*="#000000"],
+.dark-mode .peso-feature-1 [style*="black"],
+.dark-mode .peso-feature-1 [style*="#000"],
+.dark-mode .peso-feature-1 [style*="#000000"],
+.dark-mode .peso-feature-2 [style*="black"],
+.dark-mode .peso-feature-2 [style*="#000"],
+.dark-mode .peso-feature-2 [style*="#000000"],
+.dark-mode .peso-feature-3 [style*="black"],
+.dark-mode .peso-feature-3 [style*="#000"],
+.dark-mode .peso-feature-3 [style*="#000000"],
+.dark-mode .security-feature-0 [style*="black"],
+.dark-mode .security-feature-0 [style*="#000"],
+.dark-mode .security-feature-0 [style*="#000000"],
+.dark-mode .security-feature-1 [style*="black"],
+.dark-mode .security-feature-1 [style*="#000"],
+.dark-mode .security-feature-1 [style*="#000000"],
+.dark-mode .security-feature-2 [style*="black"],
+.dark-mode .security-feature-2 [style*="#000"],
+.dark-mode .security-feature-2 [style*="#000000"],
+.dark-mode .security-feature-3 [style*="black"],
+.dark-mode .security-feature-3 [style*="#000"],
+.dark-mode .security-feature-3 [style*="#000000"],
+.dark-mode [class*="feature"] [style*="black"],
+.dark-mode [class*="feature"] [style*="#000"],
+.dark-mode [class*="feature"] [style*="#000000"],
+.dark-mode [class*="security"] [style*="black"],
+.dark-mode [class*="security"] [style*="#000"],
+.dark-mode [class*="security"] [style*="#000000"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+/* Override ANY element with black background inside detection areas */
+.dark-mode .enhanced-bbox .black,
+.dark-mode .enhanced-bbox .bg-black,
+.dark-mode .enhanced-bbox [class*="black"],
+.dark-mode [class*="feature"] .black,
+.dark-mode [class*="feature"] .bg-black,
+.dark-mode [class*="feature"] [class*="black"],
+.dark-mode [class*="security"] .black,
+.dark-mode [class*="security"] .bg-black,
+.dark-mode [class*="security"] [class*="black"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* ULTIMATE FIX: Remove ALL black overlays from bounding boxes */
+.dark-mode .enhanced-bbox div,
+.dark-mode .enhanced-bbox span,
+.dark-mode .enhanced-bbox p,
+.dark-mode [class*="feature"] div,
+.dark-mode [class*="feature"] span, 
+.dark-mode [class*="feature"] p,
+.dark-mode [class*="security"] div,
+.dark-mode [class*="security"] span,
+.dark-mode [class*="security"] p {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Force transparency on ALL child elements */
+.dark-mode .enhanced-bbox > *,
+.dark-mode .enhanced-bbox > * > *,
+.dark-mode .enhanced-bbox > * > * > *,
+.dark-mode [class*="feature"] > *,
+.dark-mode [class*="feature"] > * > *,
+.dark-mode [class*="feature"] > * > * > *,
+.dark-mode [class*="security"] > *,
+.dark-mode [class*="security"] > * > *,
+.dark-mode [class*="security"] > * > * > * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* FINAL NUCLEAR OPTION: Completely transparent bounding box content */
+.dark-mode img + div,
+.dark-mode img + span,
+.dark-mode .results-container div[style*="position"],
+.dark-mode .results-container span[style*="position"],
+.dark-mode .detection-overlay,
+.dark-mode .overlay-element,
+.dark-mode [style*="background: black"]:not(video):not(.webcam),
+.dark-mode [style*="background: #000"]:not(video):not(.webcam),
+.dark-mode [style*="background-color: black"]:not(video):not(.webcam),
+.dark-mode [style*="background-color: #000"]:not(video):not(.webcam),
+.dark-mode [style*="background-color: #000000"]:not(video):not(.webcam),
+.dark-mode [style*="background-color:black"]:not(video):not(.webcam),
+.dark-mode [style*="background-color:#000"]:not(video):not(.webcam),
+.dark-mode [style*="background-color:#000000"]:not(video):not(.webcam) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* COPY EXACT LIGHT MODE BOUNDING BOX STYLES TO DARK MODE */
+.dark-mode .enhanced-bbox {
+  position: absolute !important;
+  border: 2px solid #3b82f6 !important;
+  border-radius: 4px !important;
+  background: rgba(59, 130, 246, 0.08) !important;
+  pointer-events: none !important;
+  min-height: 30px !important;
+  min-width: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.dark-mode .peso-feature-0,
+.dark-mode .peso-feature-1,
+.dark-mode .peso-feature-2,
+.dark-mode .peso-feature-3,
+.dark-mode .security-feature-0,
+.dark-mode .security-feature-1,
+.dark-mode .security-feature-2,
+.dark-mode .security-feature-3,
+.dark-mode .security-feature-4,
+.dark-mode .security-feature-5 {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.05) !important;
+  color: #3b82f6 !important;
+}
+
+.dark-mode .feature-label-enhanced {
+  position: absolute !important;
+  top: -24px !important;
+  left: 0 !important;
+  background: transparent !important;
+  color: #e5e7eb !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+  z-index: 1001 !important;
+  min-width: fit-content !important;
+}
+
+.dark-mode .confidence-badge-enhanced {
+  position: absolute !important;
+  bottom: -20px !important;
+  right: 0 !important;
+  background: transparent !important;
+  color: #10b981 !important;
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  z-index: 1001 !important;
+}
+
+/* HOME PAGE DARK MODE FIXES */
+.dark-mode .home-page {
+  background: var(--background-primary) !important;
+}
+
+.dark-mode .hero-section {
+  background: var(--background-primary) !important;
+}
+
+/* Fix all white background cards and sections on home page */
+.dark-mode .home-page [style*="background: white"],
+.dark-mode .home-page [style*="background-color: white"],
+.dark-mode .home-page [style*="background: #ffffff"],
+.dark-mode .home-page [style*="background-color: #ffffff"],
+.dark-mode .home-page .card,
+.dark-mode .home-page .feature-card,
+.dark-mode .home-page .hero-card,
+.dark-mode .home-page .stats-card,
+.dark-mode .home-page .cta-card {
+  background: var(--background-card) !important;
+  background-color: var(--background-card) !important;
+}
+
+/* Override specific white backgrounds found in HomePage.css */
+.dark-mode .home-page .btn-secondary,
+.dark-mode .home-page .feature-icon,
+.dark-mode .home-page .stat-card,
+.dark-mode .home-page .testimonial-card,
+.dark-mode .home-page .newsletter-card {
+  background: var(--background-card) !important;
+}
+
+/* Fix white gradient backgrounds */
+.dark-mode .hero-section {
+  background: var(--background-primary) !important;
+  background-image: none !important;
+}
+
+/* Fix all sections with white backgrounds */
+.dark-mode .features-section,
+.dark-mode .how-it-works-section,
+.dark-mode .stats-section,
+.dark-mode .cta-section,
+.dark-mode .testimonials-section,
+.dark-mode .denominations-section {
+  background: var(--background-primary) !important;
+}
+
+/* Denominations Carousel Dark Mode */
+.dark-mode .denominations-section {
+  background: var(--background-primary) !important;
+}
+
+.dark-mode .denomination-card {
+  background: var(--background-card) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .denomination-card:hover {
+  box-shadow: 0 32px 64px rgba(59, 130, 246, 0.3) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+.dark-mode .card-title {
+  color: #fff !important;
+}
+
+.dark-mode .badge-type.primary {
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60a5fa !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.dark-mode .badge-type.secondary {
+  background: rgba(99, 102, 241, 0.2) !important;
+  color: #a78bfa !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Fix buttons with white backgrounds */
+.dark-mode .btn-outline {
+  background: var(--background-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .btn-outline:hover {
+  background: var(--background-elevated) !important;
+  border-color: var(--primary-teal) !important;
+  color: var(--primary-teal) !important;
+}
+
+/* Additional white background overrides */
+.dark-mode .home-page *[style*="background:white"],
+.dark-mode .home-page *[style*="background: white"],
+.dark-mode .home-page *[style*="background-color:white"],
+.dark-mode .home-page *[style*="background-color: white"] {
+  background: var(--background-card) !important;
+  background-color: var(--background-card) !important;
+}
+
+/* ===================================== */
+/* SCAN PAGE - Comprehensive Info      */
+/* ===================================== */
+
+/* Comprehensive Detection Info Section */
+.dark-mode .comprehensive-info {
+  background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+  border-color: #0ea5e9 !important;
+}
+
+/* Feature Badge - Keep the blue gradient but adjust for dark mode */
+.dark-mode .feature-badge {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4) !important;
+}
+
+/* Feature Description Text */
+.dark-mode .feature-description {
+  color: #e5e5e5 !important;
+}
+
+/* ===================================== */
+/* BOUNDING BOXES - COLORED IN DARK MODE */
+/* ===================================== */
+
+/* Peso and Security Feature Colors (Blue) */
+.dark-mode .peso-feature-0,
+.dark-mode .peso-feature-1,
+.dark-mode .peso-feature-2,
+.dark-mode .peso-feature-3,
+.dark-mode .security-feature-0,
+.dark-mode .security-feature-1,
+.dark-mode .security-feature-2,
+.dark-mode .security-feature-3,
+.dark-mode .security-feature-4,
+.dark-mode .security-feature-5 {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.08) !important;
+  color: #3b82f6 !important;
+}
+
+/* Broken Currency Detection Colors */
+.dark-mode .broken-currency-0 {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #ef4444 !important;
+}
+
+.dark-mode .broken-currency-1 {
+  border-color: #f59e0b !important;
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #f59e0b !important;
+}
+
+.dark-mode .broken-currency-2 {
+  border-color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #10b981 !important;
+}
+
+/* Counterfeit Feature Colors */
+.dark-mode .counterfeit-feature-0 {
+  border-color: #8b5cf6 !important;
+  background: rgba(139, 92, 246, 0.18) !important;
+  color: #8b5cf6 !important;
+}
+
+.dark-mode .counterfeit-feature-1 {
+  border-color: #06b6d4 !important;
+  background: rgba(6, 182, 212, 0.12) !important;
+  color: #06b6d4 !important;
+}
+
+.dark-mode .counterfeit-feature-2 {
+  border-color: #ec4899 !important;
+  background: rgba(236, 72, 153, 0.12) !important;
+  color: #ec4899 !important;
+}
+
+.dark-mode .counterfeit-feature-3 {
+  border-color: #14b8a6 !important;
+  background: rgba(20, 184, 166, 0.12) !important;
+  color: #14b8a6 !important;
+}
+
+.dark-mode .counterfeit-feature-4 {
+  border-color: #f97316 !important;
+  background: rgba(249, 115, 22, 0.12) !important;
+  color: #f97316 !important;
+}
+
+.dark-mode .counterfeit-feature-5 {
+  border-color: #84cc16 !important;
+  background: rgba(132, 204, 22, 0.12) !important;
+  color: #84cc16 !important;
+}
+
+/* ===================================== */
+/* CONFIDENCE BARS - COLORED IN DARK MODE */
+/* ===================================== */
+
+/* Individual confidence bar colors based on percentage */
+.dark-mode .confidence-fill {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4) !important;
+}
+
+/* High confidence (green) */
+.dark-mode .confidence-bar-item[data-confidence^="9"] .confidence-fill,
+.dark-mode .confidence-bar-item[data-confidence^="8"] .confidence-fill {
+  background: linear-gradient(90deg, #10b981, #059669) !important;
+}
+
+/* Medium confidence (blue) */
+.dark-mode .confidence-bar-item[data-confidence^="7"] .confidence-fill,
+.dark-mode .confidence-bar-item[data-confidence^="6"] .confidence-fill {
+  background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+}
+
+/* Low confidence (yellow/orange) */
+.dark-mode .confidence-bar-item[data-confidence^="5"] .confidence-fill,
+.dark-mode .confidence-bar-item[data-confidence^="4"] .confidence-fill {
+  background: linear-gradient(90deg, #f59e0b, #d97706) !important;
+}
+
+/* Very low confidence (red) */
+.dark-mode .confidence-bar-item[data-confidence^="3"] .confidence-fill,
+.dark-mode .confidence-bar-item[data-confidence^="2"] .confidence-fill,
+.dark-mode .confidence-bar-item[data-confidence^="1"] .confidence-fill {
+  background: linear-gradient(90deg, #ef4444, #dc2626) !important;
+}
+
+/* Confidence bar background */
+.dark-mode .confidence-bar {
+  background: #1a1a1a !important;
+}
+
+/* ===================================== */
+/* TOOLS PAGES - UV LIGHT, AR SECURITY, MAGNIFIER */
+/* ===================================== */
+
+/* UV Light Page */
+.dark-mode .uv-container {
+  background: var(--background-primary) !important;
+  background: linear-gradient(135deg, #0a0a0a 0%, #121212 50%, #1a1a1a 100%) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .uv-header {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode .uv-main-content {
+  background: transparent !important;
+}
+
+.dark-mode .camera-section,
+.dark-mode .controls-section,
+.dark-mode .features-section {
+  background: var(--background-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .uv-camera-container {
+  background: #000 !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .uv-controls {
+  background: var(--background-card) !important;
+}
+
+.dark-mode .uv-button {
+  background: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .uv-button.active {
+  background: var(--primary-teal) !important;
+  color: white !important;
+}
+
+.dark-mode .feature-card {
+  background: var(--background-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark-mode .feature-card h4 {
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .feature-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* AR Security Page */
+.dark-mode .ar-security-container {
+  background: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .ar-header {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode .ar-camera-container {
+  background: #000 !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Digital Magnifier Page */
+.dark-mode .magnifier-container {
+  background: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .magnifier-header {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode .magnifier-camera {
+  background: #000 !important;
+  border-color: var(--border-color) !important;
+}
+
+

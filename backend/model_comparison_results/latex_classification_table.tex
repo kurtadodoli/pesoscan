@@ -1,0 +1,23 @@
+
+\begin{table}[h]
+\centering
+\caption{Classification Models Comparison (Selected Models)}
+\label{tab:classification_comparison}
+\small
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Val Acc} & \textbf{Top-5} & \textbf{Inference} & \textbf{Size} & \textbf{Parameters} \\
+ & \textbf{(\%)} & \textbf{(\%)} & \textbf{(ms)} & \textbf{(MB)} & \textbf{(M)} \\
+\hline
+VGG-16 & 89.1 & 94.1 & 42 & 528 & 138.4 \\
+ResNet-50 & 91.5 & 95.8 & 32 & 98 & 25.6 \\
+MobileNet-V3 & 90.8 & 95.2 & 11 & 21 & 5.4 \\
+EfficientNet-V2-B1 & 92.8 & 96.7 & 22 & 32 & 8.1 \\
+DenseNet-201 & 89.2 & 94.9 & 45 & 112 & 20.0 \\
+\hline
+MobileNet-V3 (PesoScan) & 90.8 & 95.2 & 11 & 21 & 5.4 \\
+ResNet-50 (PesoScan) & 91.5 & 95.8 & 32 & 98 & 25.6 \\
+\textbf{Hybrid CNN (PesoScan)} & \textbf{96.8} & \textbf{98.9} & \textbf{25} & \textbf{51} & \textbf{12.8} \\
+\hline
+\end{tabular}
+\end{table}
