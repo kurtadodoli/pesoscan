@@ -16,9 +16,8 @@ const HomePage = () => {
               <span className="title-main">PesoScan</span>
               <div className="title-accent"></div>
             </h1>
-            <p className="hero-subtitle">Advanced Counterfeit Detection System</p>
             <p className="hero-description">
-              PesoScan: A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8
+              A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8
             </p>
             
             <div className="action-buttons">

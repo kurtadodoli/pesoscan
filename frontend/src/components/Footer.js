@@ -24,10 +24,10 @@ const Footer = () => {
           <div className="footer-section">
             <h5>Technology</h5>
             <ul>
-              <li>YOLOv8 Detection</li>
-              <li>CNN Classification</li>
-              <li>ReactJS Frontend</li>
-              <li>Python Backend</li>
+              <li>YOLOv8 Object Detection</li>
+              <li>ResNet-50 & MobileNetV3</li>
+              <li>React 18 Frontend</li>
+              <li>FastAPI Backend</li>
             </ul>
           </div>
           

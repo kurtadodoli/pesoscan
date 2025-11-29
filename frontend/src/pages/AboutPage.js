@@ -21,7 +21,7 @@ const AboutPage = () => {
           <Logo size="large" />
           <h1>About PesoScan</h1>
           <p className="about-subtitle">
-            PesoScan: A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8
+            A Computer Vision-Based Counterfeit Detection, Denomination Classification, and Damage Assessment System for Philippine Banknotes and Coins Using Transfer Learning with a Hybrid of ResNet-50 and MobileNetV3, Integrated with YOLOv8
           </p>
         </div>
 
@@ -444,12 +444,24 @@ const AboutPage = () => {
                 </div>
 
                 <div className="academic-info">
-                  <h3>📚 Academic Information</h3>
+                  <h3>Academic Information</h3>
                   <div className="academic-details">
-                    <p><strong>Institution:</strong> Technological Institute of the Philippines - Quezon City</p>
-                    <p><strong>Program:</strong> Bachelor of Science in Computer Science</p>
-                    <p><strong>Project Type:</strong> Thesis Project</p>
-                    <p><strong>Academic Year:</strong> 2024-2025</p>
+                    <div className="academic-card">
+                      <span className="academic-label">Institution</span>
+                      <span className="academic-value">Technological Institute of the Philippines - Quezon City</span>
+                    </div>
+                    <div className="academic-card">
+                      <span className="academic-label">Program</span>
+                      <span className="academic-value">Bachelor of Science in Computer Science</span>
+                    </div>
+                    <div className="academic-card">
+                      <span className="academic-label">Project Type</span>
+                      <span className="academic-value">Thesis Project</span>
+                    </div>
+                    <div className="academic-card">
+                      <span className="academic-label">Academic Year</span>
+                      <span className="academic-value">2025-2026</span>
+                    </div>
                   </div>
                 </div>
               </section>
