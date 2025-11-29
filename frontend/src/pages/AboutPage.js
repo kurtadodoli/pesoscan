@@ -98,9 +98,21 @@ const AboutPage = () => {
                   <div className="faq-item">
                     <h5>How accurate is PesoScan?</h5>
                     <p>
-                      Our model achieves over 99% accuracy in laboratory testing. However, accuracy may vary 
-                      based on image quality, lighting conditions, and banknote condition. Always verify suspicious 
-                      banknotes through official channels for important transactions.
+                      Our hybrid model utilizing ResNet-50 and MobileNetV3 with transfer learning achieves over 99% 
+                      accuracy in laboratory testing. The YOLOv8 object detection combined with deep learning 
+                      classification provides robust performance. However, accuracy may vary based on image quality, 
+                      lighting conditions, and banknote condition. Always verify suspicious banknotes through official 
+                      channels for important transactions.
+                    </p>
+                  </div>
+                  
+                  <div className="faq-item">
+                    <h5>What technology powers PesoScan?</h5>
+                    <p>
+                      PesoScan uses a state-of-the-art computer vision pipeline combining YOLOv8 for real-time 
+                      object detection and a hybrid architecture of ResNet-50 and MobileNetV3 for classification. 
+                      These models are fine-tuned using transfer learning on Philippine banknote datasets, enabling 
+                      accurate denomination identification and counterfeit detection.
                     </p>
                   </div>
                   
@@ -109,7 +121,7 @@ const AboutPage = () => {
                     <p>
                       PesoScan currently supports all current Philippine peso denominations: ₱20, ₱50, ₱100, 
                       ₱200, ₱500, and ₱1000 banknotes. The system is trained on the latest polymer and enhanced 
-                      security features.
+                      security features, with models capable of detecting 41 distinct security features.
                     </p>
                   </div>
                   
