@@ -77,8 +77,8 @@ const AboutPage = () => {
                   <div className="workflow-step">
                     <div className="step-number">3</div>
                     <div className="step-content">
-                      <h4>Feature Analysis</h4>
-                      <p>CNN classifier analyzes security features including watermarks, security threads, and microprinting.</p>
+                      <h4>Feature Analysis & Classification</h4>
+                      <p>Hybrid ResNet-50 and MobileNetV3 models analyze security features including watermarks, security threads, and microprinting for denomination classification and authenticity verification.</p>
                     </div>
                   </div>
                   
@@ -86,7 +86,7 @@ const AboutPage = () => {
                     <div className="step-number">4</div>
                     <div className="step-content">
                       <h4>Result Generation</h4>
-                      <p>System provides authenticity classification with confidence score and detailed analysis.</p>
+                      <p>System provides authenticity classification with confidence score and detailed analysis using transfer learning techniques.</p>
                     </div>
                   </div>
                 </div>
