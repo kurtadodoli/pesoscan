@@ -1,7 +1,5 @@
 PesoScan
 
-![PesoScan Logo](./assets/logo.svg)
-
 ## Overview
 
 PesoScan is a web-based counterfeit detection platform for Philippine peso bills, combining a ReactJS frontend with a Python backend that integrates YOLOv8 for object detection and a hybrid ResNet-50 & MobileNetV3 architecture for classification. The system allows users to scan or upload images of Philippine banknotes and receive automated authenticity classification.
