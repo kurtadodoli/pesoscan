@@ -131,4 +131,4 @@ pesoscan/
 
 ---
 
-**Note**: This system is designed for educational and research purposes. Always verify currency authenticity through official banking channels for important transactions.
+
