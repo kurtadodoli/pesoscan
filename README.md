@@ -131,8 +131,6 @@ This is a thesis project for academic purposes. For questions or collaboration, 
 
 ## License
 
-This project is for educational and research purposes. See [LICENSE](LICENSE) for details.
-
 
 
 - FastAPI framework
