@@ -123,8 +123,6 @@ pesoscan/
 - **User-Friendly**: Clear buttons, intuitive navigation
 - **Trust-Oriented**: Security-focused design elements
 
-## Contributing
-
 
 
 
