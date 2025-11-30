@@ -133,10 +133,7 @@ This is a thesis project for academic purposes. For questions or collaboration, 
 
 This project is for educational and research purposes. See [LICENSE](LICENSE) for details.
 
-## Acknowledgments
 
-- Philippine peso bill security features research
-- YOLOv8 by Ultralytics
 - React community and ecosystem
 - FastAPI framework
 
