@@ -1,4 +1,4 @@
-# PesoScan: Smart Counterfeit Detection for Philippine Peso Bills
+PesoScan
 
 ![PesoScan Logo](./assets/logo.svg)
 
