@@ -127,8 +127,6 @@ pesoscan/
 
 This is a thesis project for academic purposes. For questions or collaboration, please contact the development team.
 
-## License
-
 
 
 - FastAPI framework
