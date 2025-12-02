@@ -113,7 +113,7 @@ pesoscan/
 - **Logo**: Peso symbol (₱) + eye icon
 - **Colors**: 
   - Primary: Dark Blue (#1e3a8a)
-  - Secondary: Teal (#0d9488)
+
 
 
 
