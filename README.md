@@ -129,6 +129,4 @@ pesoscan/
 
 - FastAPI framework
 
----
-
 
