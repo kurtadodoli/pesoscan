@@ -121,7 +121,7 @@ pesoscan/
 - **Minimalist**: Clean backgrounds, limited color palette
 - **Professional**: Consistent branding, uncluttered layouts
 - **User-Friendly**: Clear buttons, intuitive navigation
-- **Trust-Oriented**: Security-focused design elements
+
 
 
 
