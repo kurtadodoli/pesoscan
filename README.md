@@ -115,7 +115,6 @@ pesoscan/
   - Primary: Dark Blue (#1e3a8a)
   - Secondary: Teal (#0d9488)
   - Accent: White (#ffffff), Silver (#94a3b8)
-- **Typography**: Clean, modern fonts (Roboto/Montserrat)
 
 
 
