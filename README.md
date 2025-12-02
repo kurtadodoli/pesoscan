@@ -120,7 +120,7 @@ pesoscan/
 ### UI Principles
 - **Minimalist**: Clean backgrounds, limited color palette
 - **Professional**: Consistent branding, uncluttered layouts
-- **User-Friendly**: Clear buttons, intuitive navigation
+
 
 
 
