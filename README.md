@@ -114,7 +114,7 @@ pesoscan/
 - **Colors**: 
   - Primary: Dark Blue (#1e3a8a)
   - Secondary: Teal (#0d9488)
-  - Accent: White (#ffffff), Silver (#94a3b8)
+
 
 
 
