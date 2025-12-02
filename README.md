@@ -117,7 +117,7 @@ pesoscan/
   - Accent: White (#ffffff), Silver (#94a3b8)
 - **Typography**: Clean, modern fonts (Roboto/Montserrat)
 
-### UI Principles
+
 
 
 
