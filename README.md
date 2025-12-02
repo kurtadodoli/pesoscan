@@ -118,7 +118,6 @@ pesoscan/
 - **Typography**: Clean, modern fonts (Roboto/Montserrat)
 
 ### UI Principles
-- **Minimalist**: Clean backgrounds, limited color palette
 
 
 
