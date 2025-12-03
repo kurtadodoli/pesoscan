@@ -111,7 +111,7 @@ pesoscan/
 
 ### Visual Identity
 - **Logo**: Peso symbol (₱) + eye icon
-- **Colors**: 
+
 
 
 
