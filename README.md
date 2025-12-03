@@ -101,7 +101,7 @@ pesoscan/
 ## System Workflow
 
 1. **User Input**: Upload or scan peso bill image via ReactJS frontend
-2. **API Request**: Image sent to Python backend API
+
 
 
 
