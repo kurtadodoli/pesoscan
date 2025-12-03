@@ -86,7 +86,6 @@ pesoscan/
    npm start
    ```
 
-3. **Set up the backend**
 
 
 
