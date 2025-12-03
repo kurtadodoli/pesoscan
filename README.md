@@ -93,7 +93,7 @@ pesoscan/
    python main.py
    ```
 
-4. **Access the application**
+
 
 
 
