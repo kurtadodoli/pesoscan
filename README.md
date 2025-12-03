@@ -107,7 +107,7 @@ pesoscan/
 5. **Response**: Backend returns JSON with authenticity decision and confidence
 6. **Display**: Frontend shows professional results with visual indicators
 
-## Design Guidelines
+
 
 
 
