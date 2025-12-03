@@ -104,7 +104,7 @@ pesoscan/
 2. **API Request**: Image sent to Python backend API
 3. **Detection**: YOLOv8 detects and crops peso bill from image
 4. **Classification**: Hybrid ResNet-50 & MobileNetV3 analyzes cropped bill for authenticity
-5. **Response**: Backend returns JSON with authenticity decision and confidence
+
 
 
 
