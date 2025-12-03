@@ -100,7 +100,6 @@ pesoscan/
 
 ## System Workflow
 
-1. **User Input**: Upload or scan peso bill image via ReactJS frontend
 
 
 
