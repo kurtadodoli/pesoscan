@@ -98,8 +98,6 @@ pesoscan/
    - Backend API: http://localhost:8000
    - API Documentation: http://localhost:8000/docs
 
-## System Workflow
-
 
 
 
