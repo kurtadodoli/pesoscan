@@ -103,7 +103,6 @@ pesoscan/
 1. **User Input**: Upload or scan peso bill image via ReactJS frontend
 2. **API Request**: Image sent to Python backend API
 3. **Detection**: YOLOv8 detects and crops peso bill from image
-4. **Classification**: Hybrid ResNet-50 & MobileNetV3 analyzes cropped bill for authenticity
 
 
 
