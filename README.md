@@ -109,7 +109,7 @@ pesoscan/
 
 ## Design Guidelines
 
-### Visual Identity
+
 
 
 
