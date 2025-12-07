@@ -68,7 +68,7 @@ pesoscan/
 
 ### Prerequisites
 - Node.js 18+ and npm
-- Python 3.8+
+
 
 
 
