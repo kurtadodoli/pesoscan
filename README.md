@@ -79,7 +79,7 @@ pesoscan/
    cd pesoscan
    ```
 
-2. **Set up the frontend**
+
 
 
 
