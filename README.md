@@ -47,7 +47,7 @@ pesoscan/
 ## Tech Stack
 
 ### Frontend
-- **Framework**: ReactJS
+
 
 
 
