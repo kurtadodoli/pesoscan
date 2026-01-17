@@ -60,7 +60,7 @@ pesoscan/
 - **API Documentation**: Swagger/OpenAPI
 
 ### AI/ML
-- **Object Detection**: YOLOv8 (Ultralytics)
+
 
 
 
