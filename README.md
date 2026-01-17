@@ -44,7 +44,7 @@ pesoscan/
 └── README.md        # This file
 ```
 
-## Tech Stack
+
 
 
 
