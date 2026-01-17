@@ -42,7 +42,7 @@ pesoscan/
 ├── assets/           # Logos, images, and design assets
 ├── docs/            # Documentation and thesis materials
 └── README.md        # This file
-```
+
 
 
 
