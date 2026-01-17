@@ -48,7 +48,7 @@ pesoscan/
 
 ### Frontend
 - **Framework**: ReactJS
-- **Styling**: CSS3 with custom design system
+
 
 
 
