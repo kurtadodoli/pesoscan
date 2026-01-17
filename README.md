@@ -53,7 +53,6 @@ pesoscan/
 - **HTTP Client**: Axios for API communication
 - **Routing**: React Router
 
-### Backend
 
 
 
