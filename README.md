@@ -51,7 +51,7 @@ pesoscan/
 - **Styling**: CSS3 with custom design system
 - **Camera**: WebRTC for live video capture
 - **HTTP Client**: Axios for API communication
-- **Routing**: React Router
+
 
 
 
