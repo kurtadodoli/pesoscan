@@ -67,7 +67,6 @@ pesoscan/
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18+ and npm
 
 
 
