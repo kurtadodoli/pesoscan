@@ -46,7 +46,6 @@ pesoscan/
 
 ## Tech Stack
 
-### Frontend
 
 
 
