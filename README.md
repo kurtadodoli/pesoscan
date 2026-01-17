@@ -62,7 +62,7 @@ pesoscan/
 ### AI/ML
 - **Object Detection**: YOLOv8 (Ultralytics)
 - **Classification**: Hybrid ResNet-50 & MobileNetV3 with Transfer Learning
-- **Training Data**: Philippine peso bill dataset
+
 
 
 
