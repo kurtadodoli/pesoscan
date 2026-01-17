@@ -49,7 +49,6 @@ pesoscan/
 ### Frontend
 - **Framework**: ReactJS
 - **Styling**: CSS3 with custom design system
-- **Camera**: WebRTC for live video capture
 
 
 
