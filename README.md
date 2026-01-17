@@ -54,7 +54,7 @@ pesoscan/
 - **Routing**: React Router
 
 ### Backend
-- **Framework**: FastAPI
+
 
 
 
