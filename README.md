@@ -64,7 +64,7 @@ pesoscan/
 - **Classification**: Hybrid ResNet-50 & MobileNetV3 with Transfer Learning
 - **Training Data**: Philippine peso bill dataset
 
-## Quick Start
+
 
 
 
