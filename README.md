@@ -57,7 +57,6 @@ pesoscan/
 - **Framework**: FastAPI
 - **ML Libraries**: YOLOv8, TensorFlow/PyTorch
 - **Image Processing**: OpenCV, PIL
-- **API Documentation**: Swagger/OpenAPI
 
 
 
