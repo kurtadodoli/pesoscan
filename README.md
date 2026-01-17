@@ -59,7 +59,7 @@ pesoscan/
 - **Image Processing**: OpenCV, PIL
 - **API Documentation**: Swagger/OpenAPI
 
-### AI/ML
+
 
 
 
