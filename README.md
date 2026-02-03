@@ -38,7 +38,7 @@ PesoScan is a web-based counterfeit detection platform for Philippine peso bills
 ```
 pesoscan/
 ├── frontend/           # ReactJS application
-├── backend/           # Python FastAPI ser
+├── backend/           # Python FastAPI se
 
 
 
